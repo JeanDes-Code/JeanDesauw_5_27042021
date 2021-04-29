@@ -9,9 +9,19 @@ h1{
     font-weight: 600;
 }
 
+p{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+
+header{
+    margin: auto 80px;
+}
+
 nav{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 nav a{
@@ -35,7 +45,7 @@ nav a{
 }
 
 .productItem{
-    width: 25%;
+    width: 28%;
     border-radius: 10%;
     display: flex;
     margin:30px;
@@ -50,28 +60,37 @@ nav a{
 }
 
 .productImg{
+    object-fit:contain;
     border-radius: 20px 20px 0 0;
+    height: 197px;
+    object-fit: cover;
 }
 
 .productName{
     text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .descriptionStyle{
     padding: 0 30px;
 }
 
-.productInfo{
-    margin-top: -10px;
-}
-
 .productId{
     font-weight: 600;
     font-size:14px;
-    margin-top: -10px;
+    margin-top: -20px;
+    margin-left: 7px;
+}
+
+.productDescription{
+    margin-top: 20px;
 }
 
 .productPrice{
     text-align: end;
     font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
