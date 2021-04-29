@@ -1,24 +1,15 @@
 let store = document.getElementById('store');
 
-//travail sur l'affichage dynamique depuis le serveur//
-
-
+/*La fonction getProducts récupère les différents produits sur le serveur
+et renvoie les produits dans la variable products */
 const getProducts = async function(){
     let response = await fetch ("http://localhost:3000/api/furniture")
     let products = await response.json();
-    /*for (let i in products){
-        console.log(products[i].imageUrl)
-        console.log(products[i].name)
-        console.log(products[i]._id);
-        console.log(products[i].price);
-        console.log(products[i].description);
-        for(let j in products[i].varnish){
-            console.log(products[i].varnish[j]);
-        }
-    }*/
     return products;
 }
 
+/*La fonction showProduct récupère la variable products depuis la fonction getProducts
+et génère du HTML pour créer i vignettes produit dans la div #store */ 
 const showProduct =async ()=> {
     let products = await getProducts();
     for(let i in products){
@@ -37,7 +28,6 @@ const showProduct =async ()=> {
         )
     }
 }
-
 
 showProduct();
 
