@@ -53,6 +53,8 @@ nav a{
     background-color: white;
     box-shadow: 0px 15px 24px 0px rgba(0,0,0,0.4);
     cursor: pointer;
+    color: black;
+    text-decoration: none;
 }
 
 .productItem:hover{

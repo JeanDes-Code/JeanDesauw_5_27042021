@@ -15,7 +15,7 @@ const showProduct =async ()=> {
     for(let i in products){
         store.innerHTML +=(
                 `
-            <a class="productItem p-${i}">
+            <a href="pages/produit.html" class="productItem p-${i}">
                 <img class="productImg" src=${products[i].imageUrl} />
                 <h2 class="productName descriptionStyle">${products[i].name}</h2>
                 <div class="productInfo ">
@@ -30,8 +30,3 @@ const showProduct =async ()=> {
 }
 
 showProduct();
-
-
-
-
-
