@@ -24,6 +24,7 @@ nav{
     justify-content: space-between;
     align-items: center;
 }
+
 nav a{
     text-decoration: none;
     color: black;
@@ -31,10 +32,14 @@ nav a{
     font-weight: 600;
 }
 
+nav a:hover{
+    text-decoration: underline;
+}
+
 .title{
     margin-top: 50px;
     text-align: center;
-    font-size: 15px;
+    font-size: 30px;
 }
 
 #store{
@@ -95,4 +100,75 @@ nav a{
     font-weight: 700;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+#productSheet{
+    margin-top: 10px;
+}
+
+.itemCard{
+    display: flex;
+    width: 65%;
+    margin: auto;
+    background-color: white;
+    padding: 0 20px 0px 0;
+    border-radius: 30px;
+    box-shadow: 0px 15px 24px 0px rgba(0,0,0,0.4);
+}
+
+.itemName{
+    text-align: center;
+    margin-top: -200px;
+}
+
+.itemImg{
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+    border: thick solid black;
+    border-radius: 30px 0 0 30px;
+}
+
+.columnDescription{
+    margin-left: 40px;
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.itemVarnish{
+    display: flex;
+    font-weight: 600;
+}
+
+.vernis{
+    margin-left: 20px;
+}
+
+.itemPrice{
+    font-weight: 600;
+}
+
+.itemOrder{
+    display: flex;
+    justify-content: space-between;
+}
+
+.itemQuantity{
+    width: 30px;
+}
+
+.itemAdd{
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.itemStyle{
+    font-size: 20px;
+}
+
+.itemImportantInformation{
+    font-weight: 600;
+    font-size: 23px;
 }
