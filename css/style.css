@@ -145,6 +145,11 @@ nav a:hover{
 
 .vernis{
     margin-left: 20px;
+    appearance: none;
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid black;
+    padding: 5px;
 }
 
 .itemPrice{

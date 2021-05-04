@@ -6,10 +6,9 @@ const onLoadCallback = function(event){
     let prix = new URL(window.location.href).searchParams.get("price");
     let serial = new URL(window.location.href).searchParams.get("_id");
     let description = new URL(window.location.href).searchParams.get("description");
-    let image=new URL(window.location.href).searchParams.get("imageUrl");
-    let vernis=new URL(window.location.href).searchParams.get("vernis");
-    
-    let product = document.getElementById('productSheet') 
+    let image=new URL(window.location.href).searchParams.get("imageUrl");   
+    let product = document.getElementById('productSheet'); 
+
     product.innerHTML=(
         `<article class="itemCard" >
         
@@ -20,9 +19,7 @@ const onLoadCallback = function(event){
                     <p class="itemDescription ">${description}</p>
                     <div class="itemVarnish itemImportantInformation">
                         <p>Vernis disponibles :</p>
-                        <select class="vernis" required> 
-                            <option>A</option>
-                            <option>B</option>
+                        <select id="vernis" class="vernis" required> 
                         </select>
                     </div>
                     <div class="itemOrder">
@@ -34,8 +31,28 @@ const onLoadCallback = function(event){
                     </div>
                 </div>
 
-        </article>`)
+        </article>`);
+
+    let vernis=new URL(window.location.href).searchParams.get("vernis");
+    let vernisArray = vernis.split(",");
+    let select = document.getElementById("vernis");
+
+    for(let element in vernisArray){
+        
+        select.innerHTML +=(
+            `
+            <option value='${vernisArray[element]}'>${vernisArray[element]}</option>
+            `
+        )
+        
+    };
+
+
 };
 
-window.addEventListener('DOMContentLoaded', onLoadCallback);
 
+
+
+
+
+window.addEventListener('DOMContentLoaded', onLoadCallback);
