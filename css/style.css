@@ -24,6 +24,7 @@ nav{
     justify-content: space-between;
     align-items: center;
 }
+
 nav a{
     text-decoration: none;
     color: black;
@@ -31,10 +32,14 @@ nav a{
     font-weight: 600;
 }
 
+nav a:hover{
+    text-decoration: underline;
+}
+
 .title{
     margin-top: 50px;
     text-align: center;
-    font-size: 15px;
+    font-size: 30px;
 }
 
 #store{
@@ -95,4 +100,115 @@ nav a{
     font-weight: 700;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+#productSheet{
+    margin-top: 10px;
+}
+
+.itemCard{
+    display: flex;
+    width: 65%;
+    margin: auto;
+    background-color: white;
+    padding: 0 20px 0px 0;
+    border-radius: 30px;
+    box-shadow: 0px 15px 24px 0px rgba(0,0,0,0.4);
+}
+
+.itemName{
+    font-size: 50px;
+    text-align: center;
+    margin-top: -200px;
+}
+
+.itemImg{
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+    border: thick solid black;
+    border-radius: 30px 0 0 30px;
+}
+
+.columnDescription{
+    margin-left: 40px;
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.itemVarnish{
+    display: flex;
+    font-weight: 600;
+}
+
+.vernis{
+    margin-left: 20px;
+    appearance: none;
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid black;
+    padding: 5px;
+}
+
+/*à terme, la classe circleColor changera de couleur de fond en fonction du vernis choisi par l'utilisateur.
+Tan = #EED7AC;
+Chocolate = #7B3F00;
+Black = black;
+White = white;
+Dark Oak = #55342B;
+Light Oak = #D3BA99;
+Teak = #A76A36;
+Mahogany = #3F120F
+*/
+
+#circleColor{
+    background-color: rgba(243,233,241,0.7);
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: 30px;
+}
+
+.empty{
+    background-color: rgba(243,233,241,0.7);
+}
+
+.tan{
+    background-color: #EED7AC;
+}
+
+.chocolate{
+    background-color: #7B3F00;
+}
+
+
+
+.itemPrice{
+    font-weight: 600;
+}
+
+.itemOrder{
+    display: flex;
+    justify-content: space-between;
+}
+
+.itemQuantity{
+    width: 30px;
+}
+
+.itemAdd{
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.itemStyle{
+    font-size: 20px;
+}
+
+.itemImportantInformation{
+    font-weight: 600;
+    font-size: 23px;
 }
