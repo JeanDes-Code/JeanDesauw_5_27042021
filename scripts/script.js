@@ -18,13 +18,15 @@ const showProduct = async () => {
             <a class="productItem ${i}" 
             href="pages/produit.html?imageUrl=${products[i].imageUrl}&name=${products[i].name}
             &_id=${products[i]._id}&description=${products[i].description}&price=${products[i].price}&vernis=${products[i].varnish}">
-                <img class="productImg" src=${products[i].imageUrl} />
+                
+                <img class="productImg" src=${products[i].imageUrl} alt="image du meuble ${products[i].name}"/>
                 <h2 class="productName descriptionStyle">${products[i].name}</h2>
                 <div class="productInfo ">
                     <p class="productId">(Référence : ${products[i]._id})</p>
                     <p class="productDescription descriptionStyle">${products[i].description}</p>
                     <p class="productPrice descriptionStyle">${products[i].price} €</p>
                 </div>
+                
             </a>
             `
         )

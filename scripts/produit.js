@@ -12,7 +12,8 @@ const onLoadCallback = function(event){
     let product = document.getElementById('productSheet') 
     product.innerHTML=(
         `<article class="itemCard" >
-                <img class="itemImg" src=${image} />
+        
+                <img class="itemImg" src=${image} alt="image du meuble ${titre}"/>
                 <div class="columnDescription itemStyle">
                     <h1 class = "itemName"> ${titre} </h1>
                     <p class="itemId">(<strong>Référence :</strong> ${serial})</p>
