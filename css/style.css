@@ -117,6 +117,7 @@ nav a:hover{
 }
 
 .itemName{
+    font-size: 50px;
     text-align: center;
     margin-top: -200px;
 }
