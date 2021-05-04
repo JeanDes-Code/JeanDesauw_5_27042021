@@ -152,6 +152,40 @@ nav a:hover{
     padding: 5px;
 }
 
+/*à terme, la classe circleColor changera de couleur de fond en fonction du vernis choisi par l'utilisateur.
+Tan = #EED7AC;
+Chocolate = #7B3F00;
+Black = black;
+White = white;
+Dark Oak = #55342B;
+Light Oak = #D3BA99;
+Teak = #A76A36;
+Mahogany = #3F120F
+*/
+
+#circleColor{
+    background-color: rgba(243,233,241,0.7);
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: 30px;
+}
+
+.empty{
+    background-color: rgba(243,233,241,0.7);
+}
+
+.tan{
+    background-color: #EED7AC;
+}
+
+.chocolate{
+    background-color: #7B3F00;
+}
+
+
+
 .itemPrice{
     font-weight: 600;
 }

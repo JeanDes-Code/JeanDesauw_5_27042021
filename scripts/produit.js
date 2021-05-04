@@ -21,6 +21,7 @@ const onLoadCallback = function(event){
                         <p>Vernis disponibles :</p>
                         <select id="vernis" class="vernis" required> 
                         </select>
+                        <div id='circleColor'></div>
                     </div>
                     <div class="itemOrder">
                         <p class="itemPrice itemImportantInformation ">${prix} €</p>
@@ -43,15 +44,10 @@ const onLoadCallback = function(event){
             `
             <option value='${vernisArray[element]}'>${vernisArray[element]}</option>
             `
-        )
-        
+        )     
     };
 
-
 };
-
-
-
 
 
 
