@@ -152,19 +152,8 @@ nav a:hover{
     padding: 5px;
 }
 
-/*à terme, la classe circleColor changera de couleur de fond en fonction du vernis choisi par l'utilisateur.
-Tan = #EED7AC;
-Chocolate = #7B3F00;
-Black = black;
-White = white;
-Dark Oak = #55342B;
-Light Oak = #D3BA99;
-Teak = #A76A36;
-Mahogany = #3F120F
-*/
 
 #circleColor{
-    background-color: rgba(243,233,241,0.7);
     border: 1px solid black;
     border-radius: 50%;
     width: 30px;
@@ -184,7 +173,29 @@ Mahogany = #3F120F
     background-color: #7B3F00;
 }
 
+.black{
+    background-color: black;
+}
 
+.white{
+    background-color:white;
+}
+
+.darkOak{
+    background-color:#55342B;
+}
+
+.lightOak{
+    background-color:#d3ba99;
+}
+
+.teak{
+    background-color:#a76a36;
+}
+
+.mahogany{
+    background-color:#3f120f;
+}
 
 .itemPrice{
     font-weight: 600;

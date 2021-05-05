@@ -21,7 +21,7 @@ const onLoadCallback = function(event){
                         <p>Vernis disponibles :</p>
                         <select id="vernis" class="vernis" required> 
                         </select>
-                        <div id='circleColor'></div>
+                        <div id='circleColor' class='empty'></div>
                     </div>
                     <div class="itemOrder">
                         <p class="itemPrice itemImportantInformation ">${prix} €</p>
@@ -51,6 +51,7 @@ const onLoadCallback = function(event){
 //ICI on enregistre l'élément dans le panier grâce à localStorage //
     let newItem;
     let qty = document.getElementById("quantity");
+    let circle =document.getElementById("circleColor");
     let selectedQuantity = qty.value;
     let selectedVarnish = select.value;
 
@@ -59,9 +60,45 @@ const onLoadCallback = function(event){
         return selectedQuantity = qty.value;
     });
 
-    select.addEventListener("change",function(e){
-        return selectedVarnish = select.value;
-    });
+
+    const varnish= () => {
+        selectedVarnish = select.value;
+        if (selectedVarnish === "Tan"){
+            circle.classList.remove("empty","tan","chocolate","black","white","darkOak","lightOak","teak","mahogany");
+            circle.classList.add("tan");
+        }
+        if (selectedVarnish === "Chocolate"){
+            circle.classList.remove("empty","tan","chocolate","black","white","darkOak","lightOak","teak","mahogany");
+            circle.classList.add("chocolate");
+        }
+        if (selectedVarnish === "Black"){
+            circle.classList.remove("empty","tan","chocolate","black","white","darkOak","lightOak","teak","mahogany");
+            circle.classList.add("black");
+        }
+        if (selectedVarnish === "White"){
+            circle.classList.remove("empty","tan","chocolate","black","white","darkOak","lightOak","teak","mahogany");
+            circle.classList.add("white");
+        }
+        if (selectedVarnish === "Dark Oak"){
+            circle.classList.remove("empty","tan","chocolate","black","white","darkOak","lightOak","teak","mahogany");
+            circle.classList.add("darkOak");
+        }
+        if (selectedVarnish === "Light Oak"){
+            circle.classList.remove("empty","tan","chocolate","black","white","darkOak","lightOak","teak","mahogany");
+            circle.classList.add("lightOak");
+        }
+        if (selectedVarnish === "Teak"){
+            circle.classList.remove("empty","tan","chocolate","black","white","darkOak","lightOak","teak","mahogany");
+            circle.classList.add("teak");
+        }
+        if (selectedVarnish === "Mahogany"){
+            circle.classList.remove("empty","tan","chocolate","black","white","darkOak","lightOak","teak","mahogany");
+            circle.classList.add("mahogany");
+        }
+        return selectedVarnish;
+    }
+    varnish();
+    select.addEventListener("change",varnish);
 
 //Création de l'objet qui sera enregistré en localstorage
     const itemInfo = () =>{
