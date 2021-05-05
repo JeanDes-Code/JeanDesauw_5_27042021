@@ -26,8 +26,8 @@ const onLoadCallback = function(event){
                     <div class="itemOrder">
                         <p class="itemPrice itemImportantInformation ">${prix} €</p>
                         <div class="orderInfo">
-                            <input type="number" class="itemQuantity itemImportantInformation" name="quantity" required min="0" max="10" value ="0">
-                            <button class="itemAdd itemImportantInformation">Ajouter au panier</button>
+                            <input type="number" id="quantity" class="itemQuantity itemImportantInformation" name="quantity" required min="1" max="10" value ="1">
+                            <button class="itemAdd itemImportantInformation" id="submit" >Ajouter au panier</button>
                         </div>
                     </div>
                 </div>
@@ -47,8 +47,55 @@ const onLoadCallback = function(event){
         )     
     };
 
-};
 
+//ICI on enregistre l'élément dans le panier grâce à localStorage //
+    let newItem;
+    let qty = document.getElementById("quantity");
+    let selectedQuantity = qty.value;
+    let selectedVarnish = select.value;
+
+// Vérification en continue de la valeur de quantité et du vernis choisi par le client
+    qty.addEventListener("change",function(e){
+        return selectedQuantity = qty.value;
+    });
+
+    select.addEventListener("change",function(e){
+        return selectedVarnish = select.value;
+    });
+
+//Création de l'objet qui sera enregistré en localstorage
+    const itemInfo = () =>{
+
+        if (qty){
+            newItem = {
+                name : titre,
+                vernis: selectedVarnish, 
+                quantity: selectedQuantity,
+                price:  prix,
+                total: parseInt(prix,10)*parseInt(selectedQuantity),
+                serial: serial
+            }
+            return(newItem);
+        }
+        else{
+            console.log("vous devez d'abord choisir une quantité et un vernis")
+        }
+    }
+
+//Fonction "Ajouter au panier", qui enregistre l'item sélectionné dans localstorage 
+    const addToCart= () => {
+        itemInfo();
+        console.log(newItem);
+        localStorage.setItem("panier", JSON.stringify(newItem))
+        console.log(localStorage.getItem('panier'));
+    }
+
+    let submit = document.getElementById('submit');
+    if(submit){
+        submit.addEventListener('click', addToCart);
+    }
+
+};
 
 
 window.addEventListener('DOMContentLoaded', onLoadCallback);
