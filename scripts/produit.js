@@ -1,5 +1,7 @@
 /*La fonction onLoadCallback les informations du produit choisi par l'utilisateur 
 énère du HTML pour créer i vignettes produit dans la div #store */
+console.log(localStorage.getItem('panier'));
+
 const onLoadCallback = function(event){
     
     let titre = new URL(window.location.href).searchParams.get("name");
@@ -102,36 +104,47 @@ const onLoadCallback = function(event){
 
 //Création de l'objet qui sera enregistré en localstorage
     const itemInfo = () =>{
-
-        if (qty){
-            newItem = {
-                name : titre,
-                vernis: selectedVarnish, 
-                quantity: selectedQuantity,
-                price:  prix,
-                total: parseInt(prix,10)*parseInt(selectedQuantity),
-                serial: serial
-            }
-            return(newItem);
+        newItem = {
+            name : titre,
+            vernis: selectedVarnish, 
+            quantity: selectedQuantity,
+            price:  prix,
+            total: parseInt(prix,10)*parseInt(selectedQuantity),
+            serial: serial
         }
-        else{
-            console.log("vous devez d'abord choisir une quantité et un vernis")
-        }
+        return(newItem);
     }
 
 //Fonction "Ajouter au panier", qui enregistre l'item sélectionné dans localstorage 
     const addToCart= () => {
+        let storedPanier = JSON.parse(localStorage.getItem('panier'));
         itemInfo();
         console.log(newItem);
-        localStorage.setItem("panier", JSON.stringify(newItem))
-        console.log(localStorage.getItem('panier'));
+        if (storedPanier === null || storedPanier ===[]){
+            let panier=[];
+            panier.push(newItem);
+            localStorage.setItem("panier", JSON.stringify(panier));
+        }
+        else 
+        if (storedPanier.find(element => element.serial == newItem.serial && element.vernis == newItem.vernis) != undefined){
+
+            let element = storedPanier.find(element => element.serial == newItem.serial && element.vernis == newItem.vernis)
+            element.quantity = parseInt(newItem.quantity,10)+parseInt(element.quantity,10);
+            element.total = parseInt(element.quantity,10)*parseInt(element.price,10) ;
+            localStorage.setItem("panier", JSON.stringify(storedPanier));       
+        /*Si l'élément ajouté est différent de l'élément déjà enregistré, on l'ajoute à la suite */
+        }else{
+            storedPanier.push(newItem);
+            localStorage.setItem("panier", JSON.stringify(storedPanier));
+        }
+    console.log(localStorage.getItem('panier'));
     }
 
     let submit = document.getElementById('submit');
     if(submit){
         submit.addEventListener('click', addToCart);
     }
-
+    
 };
 
 
