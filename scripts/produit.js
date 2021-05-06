@@ -1,7 +1,5 @@
 /*La fonction onLoadCallback les informations du produit choisi par l'utilisateur 
 énère du HTML pour créer i vignettes produit dans la div #store */
-console.log(localStorage.getItem('panier'));
-
 const onLoadCallback = function(event){
     
     let titre = new URL(window.location.href).searchParams.get("name");
@@ -146,6 +144,5 @@ const onLoadCallback = function(event){
     }
     
 };
-
 
 window.addEventListener('DOMContentLoaded', onLoadCallback);

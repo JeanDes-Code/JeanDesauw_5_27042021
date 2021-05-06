@@ -223,3 +223,39 @@ nav a:hover{
     font-weight: 600;
     font-size: 23px;
 }
+
+#panier{
+    width: 60%;
+    margin: auto;
+}
+
+.panierTitle{
+    display: flex;
+    justify-content: space-between;
+}
+
+.panierItem{
+    display: flex;
+    flex-direction: column;
+}
+
+.panierRow{
+    display: flex;
+    justify-content: space-between;
+}
+
+.column{
+    width: 110px;
+    height: 30px;
+    text-align: right;
+}
+
+.names{
+    text-align: left;
+    width: 200px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
