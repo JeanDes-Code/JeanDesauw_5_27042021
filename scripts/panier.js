@@ -3,34 +3,49 @@ let panierItem = document.getElementById("panierItem");
 let panierTotal = document.getElementById("panierTotal");
 let totalPrice=0;
 let totalNumber=0;
+
 console.log(storedPanier);
-console.log("Le tableau est de type " + typeof storedPanier);
 
 const buildPanier =() =>{
-    for (let i in storedPanier){
-        panierItem.innerHTML += (
+    if (storedPanier === null || storedPanier === []){
+        panierTotal.innerHTML = (
             `
-            <div class="panierRow R-${i}">
-                <strong class="column names name-${i}">${storedPanier[i].name}</strong>
-                <strong class="column varnish-${i}">${storedPanier[i].vernis}</strong>
-                <strong class="column itemQuantity quantity-${i}">${storedPanier[i].quantity}</strong>
-                <strong class="column price-${i}">${storedPanier[i].total} € </strong>
-            </div>
+            <strong class="emptyCart"> Votre panier est actuellement vide. </strong>
             `
-        );
-
-        totalPrice += parseInt(storedPanier[i].total,10);
-        totalNumber += parseInt(storedPanier[i].quantity,10);
-    }
-    panierTotal.innerHTML = (
-        `
-        <h2 class="column names itemImportantInformation">Total :</h2>
-        <strong class="column"> </strong>
-        <strong class="column itemQuantity "> ${totalNumber} </strong>
-        <strong class="column">${totalPrice} € </strong>
-        `
-    )
+        )
+    }else{
+        for (let i in storedPanier){
+            panierItem.innerHTML += (
+                `
+                <div class="panierRow R-${i}">
+                    <p class="item column names name-${i}">${storedPanier[i].name}</p>
+                    <p class="item column varnish-${i}">${storedPanier[i].vernis}</p>
+                    <p class="item column itemQuantity quantity-${i}">${storedPanier[i].quantity}</p>
+                    <p class="item column price-${i}">${storedPanier[i].total} € </p>
+                </div>
+                `
+            );
+    
+            totalPrice += parseInt(storedPanier[i].total,10);
+            totalNumber += parseInt(storedPanier[i].quantity,10);
+        }
+        panierTotal.innerHTML = (
+            `
+            <strong class="column names total">Total :</strong>
+            <strong class="column"> </strong>
+            <strong class="column itemQuantity total "> ${totalNumber} </strong>
+            <strong class="column total">${totalPrice} € </strong>
+            `
+        )
+    }   
+    
 }
 
 buildPanier();
-console.log(totalPrice+" "+totalNumber);
+
+
+//Fonction permettant de vider le panier
+const resetCart = () =>{
+    localStorage.clear("panier");
+    window.location.reload();
+}

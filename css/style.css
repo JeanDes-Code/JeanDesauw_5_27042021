@@ -108,7 +108,7 @@ nav a:hover{
 
 .itemCard{
     display: flex;
-    width: 65%;
+    width: 80%;
     margin: auto;
     background-color: white;
     padding: 0 20px 0px 0;
@@ -150,6 +150,7 @@ nav a:hover{
     outline: none;
     border: 2px solid black;
     padding: 5px;
+    cursor: pointer;
 }
 
 
@@ -204,10 +205,15 @@ nav a:hover{
 .itemOrder{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .itemQuantity{
-    width: 30px;
+    width: 40px;
+    border-radius: 8px;
+    height: 45px;
+    margin-right: 30px;
+    outline: none;
 }
 
 .btn{
@@ -276,10 +282,25 @@ nav a:hover{
 
 .btn_position{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin: 30px 0 20px 0; 
 }
 
 #panierTotal{
     align-items: center;
+}
+
+.total{
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.item{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.emptyCart{
+    color:rgb(192, 41, 41);
+    font-size: 20px;
 }
