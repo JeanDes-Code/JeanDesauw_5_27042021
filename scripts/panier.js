@@ -14,6 +14,7 @@ const buildPanier =() =>{
             `
         )
     }else{
+        //on affiche le panier 
         for (let i in storedPanier){
             let formatedPrice = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(storedPanier[i].price)
             panierItem.innerHTML += (
@@ -26,10 +27,11 @@ const buildPanier =() =>{
                 </div>
                 `
             );
-            /*On calcule les totaux : prix et nombre d'articles */
+            /*On calcule le prix total et le nombre total d'articles */
             totalPrice += parseInt(storedPanier[i].total,10);
             totalNumber += parseInt(storedPanier[i].quantity,10);
         }
+        //on affiche le prix total et le nombre total d'article
         let formatedTotalPrice = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(totalPrice);
         panierTotal.innerHTML = (
             `
