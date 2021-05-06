@@ -27,7 +27,7 @@ const onLoadCallback = function(event){
                         <p class="itemPrice itemImportantInformation ">${prix} €</p>
                         <div class="orderInfo">
                             <input type="number" id="quantity" class="itemQuantity itemImportantInformation" name="quantity" required min="1" max="10" value ="1">
-                            <button class="itemAdd itemImportantInformation" id="submit" >Ajouter au panier</button>
+                            <button class="btn " id="submit" > 🛒 Ajouter au panier </button>
                         </div>
                     </div>
                 </div>

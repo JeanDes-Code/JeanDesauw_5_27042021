@@ -210,9 +210,12 @@ nav a:hover{
     width: 30px;
 }
 
-.itemAdd{
+.btn{
     font-weight: 600;
+    font-size: 23px;
     cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 20px;
 }
 
 .itemStyle{
@@ -227,16 +230,16 @@ nav a:hover{
 #panier{
     width: 60%;
     margin: auto;
+    background-color: white;
+    padding: 30 50px;
+    border-radius: 40px;
+    box-shadow: 0px 15px 24px 0px rgba(0,0,0,0.4);
+    border: thick solid black;
 }
 
 .panierTitle{
     display: flex;
     justify-content: space-between;
-}
-
-.panierItem{
-    display: flex;
-    flex-direction: column;
 }
 
 .panierRow{
@@ -258,4 +261,25 @@ nav a:hover{
     overflow: hidden;
 }
 
+.blank_line{
+    height: 20px;
+}
 
+.border{
+    background-color: black;
+    height: 5px;
+}
+
+#placeOrder{
+    width: fit-content;
+}
+
+.btn_position{
+    display: flex;
+    justify-content: flex-end;
+    margin: 30px 0 20px 0; 
+}
+
+#panierTotal{
+    align-items: center;
+}
