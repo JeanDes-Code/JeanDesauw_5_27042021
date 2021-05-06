@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="../css/style.css" />
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/8ed4d3c170.js" crossorigin="anonymous"></script>
         <title>Mon panier - Orinoco</title>
     </head>
 
@@ -26,8 +27,36 @@
         </header>
         <main>
             <div class="title">
+                <button id="getBack" class="hidden" onclick="getBack()"> <i class="fas fa-arrow-left"></i> </button>
                 <h1>Mon panier</h1>
             </div>
+
+            <div id=form class="hidden">
+                <form class='orderForm'>
+                    <strong class="ALERTMSG"> ⚠️ Le formulaire est en cours de création ⚠️ </strong><br>
+                    
+                    <label for="nom"> Nom :</label>
+                    <input type="text" placeholder="Dupont">
+                    
+                    <label for="nom"> Prénom :</label>
+                    <input type="text" placeholder="Louis">
+                    
+                    <label for="nom"> Adresse :</label>
+                    <input type="text" placeholder="123 Avenue Victor Hugo">
+                    
+                    <label for="nom"> Ville :</label>
+                    <input type="text" placeholder="Paris">
+                    
+                    <label for="nom"> Code postal :</label>
+                    <input type="number" placeholder="75016">
+                    
+                    <label for="nom"> Adresse e-mail :</label>
+                    <input type="email" placeholder="dupont.louis@example.fr">
+                    
+                    <input type="button" onclick='submitOrder' id="submitBtn" value="Commander">
+                </form>
+            </div>
+
             <div id="panier">
                 <div class="panierTitle">
                     <h2 class="names column">Nom</h2>
@@ -35,6 +64,7 @@
                     <h2 class="column">Quantité</h2>
                     <h2 class="column">Prix</h2>
                 </div>
+
                 <div class="border"></div>
                 <div class="blank_line"></div>
                 <div id="panierItem">
