@@ -3,8 +3,8 @@
 const onLoadCallback = function(event){
     
     let titre = new URL(window.location.href).searchParams.get("name");
-    let rawPrice = new URL(window.location.href).searchParams.get("price");
-    let prix =new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(rawPrice)
+    let prix = new URL(window.location.href).searchParams.get("price");
+    let formatedPrice = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(prix)
     let serial = new URL(window.location.href).searchParams.get("_id");
     let description = new URL(window.location.href).searchParams.get("description");
     let image=new URL(window.location.href).searchParams.get("imageUrl");   
@@ -25,7 +25,7 @@ const onLoadCallback = function(event){
                         <div id='circleColor' class='empty'></div>
                     </div>
                     <div class="itemOrder">
-                        <p class="itemPrice itemImportantInformation ">${prix}</p>
+                        <p class="itemPrice itemImportantInformation ">${formatedPrice}</p>
                         <div class="orderInfo">
                             <input type="number" id="quantity" class="itemQuantity itemImportantInformation" name="quantity" required min="1" max="10" value ="1">
                             <button class="btn " id="submit" > 🛒 Ajouter au panier </button>

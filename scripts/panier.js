@@ -15,14 +15,14 @@ const buildPanier =() =>{
         )
     }else{
         for (let i in storedPanier){
-            price = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(storedPanier[i].total);
+            let formatedPrice = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(storedPanier[i].price)
             panierItem.innerHTML += (
                 `
                 <div class="panierRow R-${i}">
                     <p class="item column names name-${i}">${storedPanier[i].name}</p>
                     <p class="item column varnish-${i}">${storedPanier[i].vernis}</p>
                     <p class="item column itemQuantity quantity-${i}">${storedPanier[i].quantity}</p>
-                    <p class="item column price-${i}">${price} </p>
+                    <p class="item column price-${i}">${formatedPrice} </p>
                 </div>
                 `
             );
@@ -30,13 +30,13 @@ const buildPanier =() =>{
             totalPrice += parseInt(storedPanier[i].total,10);
             totalNumber += parseInt(storedPanier[i].quantity,10);
         }
-        totalPrice = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(totalPrice)
+        let formatedTotalPrice = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(totalPrice);
         panierTotal.innerHTML = (
             `
             <strong class="column names total">Total :</strong>
             <strong class="column"> </strong>
             <strong class="column itemQuantity total "> ${totalNumber} </strong>
-            <strong class="column total">${totalPrice}</strong>
+            <strong class="column total">${formatedTotalPrice}</strong>
             `
         )
     }   
