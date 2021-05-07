@@ -1,13 +1,26 @@
 /*La fonction onLoadCallback les informations du produit choisi par l'utilisateur 
 énère du HTML pour créer i vignettes produit dans la div #store */
-const onLoadCallback = function (event) {
+const getElement = async function () {
+    const serial = new URL(window.location.href).searchParams.get("_id");
+    let productDetail; 
+    let response = await fetch("http://localhost:3000/api/furniture/" + serial)
+    productDetail = await response.json();
+    return productDetail ;
+}
 
-    let titre = new URL(window.location.href).searchParams.get("name");
-    let prix = new URL(window.location.href).searchParams.get("price");
+
+
+const onLoadCallback = async() => {
+    
+    productDetail = await getElement();
+
+
+    let titre = productDetail.name;
+    let prix = productDetail.price;
+    let serial = productDetail._id;
     let formatedPrice = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(prix)
-    let serial = new URL(window.location.href).searchParams.get("_id");
-    let description = new URL(window.location.href).searchParams.get("description");
-    let image = new URL(window.location.href).searchParams.get("imageUrl");
+    let description = productDetail.description;
+    let image = productDetail.imageUrl;
     let product = document.getElementById('productSheet');
 
     product.innerHTML = (
@@ -35,15 +48,15 @@ const onLoadCallback = function (event) {
 
         </article>`);
 
-    let vernis = new URL(window.location.href).searchParams.get("vernis");
-    let vernisArray = vernis.split(",");
+    let vernis = productDetail.varnish;
+    console.log(vernis);
     let select = document.getElementById("vernis");
 
-    for (let element in vernisArray) {
+    for (let element in vernis) {
 
         select.innerHTML += (
             `
-            <option value='${vernisArray[element]}'>${vernisArray[element]}</option>
+            <option value='${vernis[element]}'>${vernis[element]}</option>
             `
         )
     };

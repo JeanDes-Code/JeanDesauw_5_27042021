@@ -17,8 +17,7 @@ const showProduct = async () => {
         store.innerHTML += (
             `
             <a class="productItem ${i}" 
-            href="pages/produit.html?imageUrl=${products[i].imageUrl}&name=${products[i].name}
-            &_id=${products[i]._id}&description=${products[i].description}&price=${products[i].price}&vernis=${products[i].varnish}">
+            href="pages/produit.html?_id=${products[i]._id}">
                 
                 <img class="productImg" src=${products[i].imageUrl} alt="image du meuble ${products[i].name}"/>
                 <h2 class="productName descriptionStyle">${products[i].name}</h2>
