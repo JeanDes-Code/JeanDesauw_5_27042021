@@ -336,6 +336,37 @@ nav a:hover{
     margin-top: 20px;
 }
 
+#recap{
+    width: 40%;
+    margin: auto;
+    border: solid 5px black;
+    padding: 20px;
+}
+
+.orderId{
+    padding-bottom: 20px;
+}
+
+.userInfo{
+    padding-bottom: 20px;
+}
+
+.recapStyle{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.totalStyle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.priceTotalStyle{
+    font-size: 20px;
+    font-weight: 700;
+}
+
 .ALERTMSG{
     font-size: 25px;
     font-weight: 800;
