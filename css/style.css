@@ -307,7 +307,7 @@ nav a:hover{
     font-size: 20px;
 }
 
-#form{
+#formBox{
     width: 60%;
     margin:auto;
 }
@@ -370,4 +370,11 @@ nav a:hover{
 .ALERTMSG{
     font-size: 25px;
     font-weight: 800;
+}
+
+#error{
+    color:red;
+    font-weight: 800;
+    font-size: 20px;
+    text-align: center;
 }

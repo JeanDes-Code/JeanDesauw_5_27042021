@@ -27,30 +27,31 @@
         </header>
         <main>
             <div class="title">
-                <button id="getBack" class="hidden" onclick="getBack()"> <i class="fas fa-arrow-left"></i> </button>
+                <button id="getBack" class="hidden" onclick="formDisable()"> <i class="fas fa-arrow-left"></i> </button>
                 <h1>Mon panier</h1>
             </div>
 
-            <div id=form class="hidden">
-                <form class='orderForm'>
+            <div id=formBox class="hidden">
+                <form class='orderForm' id="form">
                     <strong class="ALERTMSG"> ⚠️ Le formulaire est en cours de création ⚠️ </strong><br>
                     
                     <label for="nom"> Nom :</label>
-                    <input id="lastName" type="text" placeholder="Dupont" required>
+                    <input id="lastName" type="text" placeholder="Dupont" required> </br>
                     
                     <label for="prénom"> Prénom :</label>
-                    <input id="firstName" type="text" placeholder="Louis" required>
+                    <input id="firstName" type="text" placeholder="Louis" required></br>
                     
                     <label for="adresse"> Adresse :</label>
-                    <input id ="address" type="text" placeholder="123 Avenue Victor Hugo" required>
+                    <input id ="address" type="text" placeholder="123 Avenue Victor Hugo" required></br>
                     
                     <label for="ville"> Ville :</label>
-                    <input id="city" type="text" placeholder="Paris" required>
+                    <input id="city" type="text" placeholder="Paris" required></br>
                     
                     <label for="email"> Adresse e-mail :</label>
-                    <input id="email" type="email" placeholder="dupont.louis@example.fr" required>
+                    <input id="email" type="email" placeholder="dupont.louis@example.fr" required></br>
                     
-                    <input type="button" onclick='submitOrder()' id="submitBtn" value="Commander">
+                    <strong id="error"></strong>
+                    <input type="submit" id="submitBtn" value="Passer la commande">
                 </form>
             </div>
 

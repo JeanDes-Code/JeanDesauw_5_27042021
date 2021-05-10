@@ -50,7 +50,7 @@ buildPanier();
 
 let placeOrder = document.getElementById('placeOrder');
 let getBack = document.getElementById('getBack');
-let form = document.getElementById('form');
+let formBox = document.getElementById('formBox');
 let panier = document.getElementById('panier');
 
 /* Cette fonction permet d'afficher le formulaire de commande mais seulement si le panier n'est pas vide */
@@ -59,7 +59,7 @@ const formToggle = () => {
         alert("⚠️ Votre panier est vide ! ⚠️");
     } else {
         getBack.classList.remove("hidden");
-        form.classList.remove("hidden");
+        formBox.classList.remove("hidden");
         panier.classList.add("hidden");
     }
 }
@@ -69,7 +69,7 @@ placeOrder.addEventListener('click', formToggle);
 /* Cette fonction permet un retour en arrière lorsque l'utilisateur a ouvert le formulaire par erreur */
 const formDisable = () => {
     panier.classList.remove("hidden");
-    form.classList.add("hidden");
+    formBox.classList.add("hidden");
     getBack.classList.add("hidden");
 }
 
