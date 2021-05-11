@@ -78,25 +78,15 @@ getBack.addEventListener('click', formDisable);
 
 // Création des objets qui seront envoyés au serveur via l'API
 
-
+let form = document.getElementById('form');
 let submitBtn = document.getElementById('submitBtn');
 let itemList = [];
+let data;
 for (let i in storedPanier){
     itemList.push(storedPanier[i].serial);
 }
 
 const submitOrder= async function (){
-    let data = {
-        contact : {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                address: document.getElementById('address').value,
-                city: document.getElementById('city').value,
-                email: document.getElementById('email').value
-            },
-        products : itemList
-    }
-    console.log(data);
     let response  = await fetch("http://localhost:3000/api/furniture/order", {
         method: "POST",
         headers: {
@@ -116,7 +106,63 @@ const submitOrder= async function (){
     .catch(() => console.log("Problème de communications avec le serveur"));
 }
 
+const checkForm = () => { 
+    let checkWording = /[§!@#$%^&().?*":{}|<>]/g;
+    let checkWordingStrict = /[0-9]/;
+    let erreur;
+    let inputs = [
+        document.getElementById('firstName').value,
+        document.getElementById('lastName').value,
+        document.getElementById('address').value,
+        document.getElementById('city').value,
+    ];
+    let strictInputs = [
+        document.getElementById('firstName'),
+        document.getElementById('lastName'),
+        document.getElementById('city')
+    ];
+    let error = document.getElementById('error');
+    
+    for (let i=0; i< inputs.length; i++) {
+        console.log(inputs[i]);
+        console.log(inputs[i].match(checkWording));
+        if (inputs[i].match(checkWording)) {
+            erreur = "Veuillez vérifiez vos informations : vous ne pouvez utiliser que des lettres, des chiffres et des tirets !"
+        };
+    };
 
+    for (let i=0; i< strictInputs.length; i++) {
+        console.log(strictInputs[i]);
+        //console.log(checkWordingStrict.match(strictInputs[i].value))
+        if (strictInputs[i].value.match(checkWordingStrict)) {
+            erreur = "Veuillez vérifiez votre Nom, Prénom et Ville : vous ne pouvez utiliser que des lettres et des tirets !"
+        }
+    };
+
+    if (erreur) {
+        error.innerHTML= erreur;
+        return false;
+    } else {
+        return data = {
+            contact : {
+                    firstName: document.getElementById('firstName').value,
+                    lastName: document.getElementById('lastName').value,
+                    address: document.getElementById('address').value,
+                    city: document.getElementById('city').value,
+                    email: document.getElementById('email').value
+                },
+            products : itemList
+        }
+    }
+}
+
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+    checkForm();
+    if (data) {
+        submitOrder();
+    }
+})
 
 //Fonction permettant de vider le panier
 const resetCart = () => {
