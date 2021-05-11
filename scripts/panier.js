@@ -129,6 +129,9 @@ const checkForm = () => {
         if (inputs[i].match(checkWording)) {
             erreur = "Veuillez vérifiez vos informations : vous ne pouvez utiliser que des lettres, des chiffres et des tirets !"
         };
+        if (!isNaN(inputs[i])) {
+            erreur = "Veuillez vérifiez vos informations : il semble que certaines ne sont que des nombres."
+        }
     };
 
     for (let i=0; i< strictInputs.length; i++) {
