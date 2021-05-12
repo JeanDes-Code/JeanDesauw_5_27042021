@@ -2,16 +2,16 @@
 énère du HTML pour créer i vignettes produit dans la div #store */
 const getElement = async function () {
     const serial = new URL(window.location.href).searchParams.get("_id");
-    let productDetail; 
+    let productDetail;
     let response = await fetch("http://localhost:3000/api/furniture/" + serial)
     productDetail = await response.json();
-    return productDetail ;
+    return productDetail;
 }
 
 
 
-const onLoadCallback = async() => {
-    
+const onLoadCallback = async () => {
+
     productDetail = await getElement();
 
 

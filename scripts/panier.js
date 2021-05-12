@@ -82,12 +82,12 @@ let form = document.getElementById('form');
 let submitBtn = document.getElementById('submitBtn');
 let itemList = [];
 let data;
-for (let i in storedPanier){
+for (let i in storedPanier) {
     itemList.push(storedPanier[i].serial);
 }
 
-const submitOrder= async function (){
-    let response  = await fetch("http://localhost:3000/api/furniture/order", {
+const submitOrder = async function () {
+    let response = await fetch("http://localhost:3000/api/furniture/order", {
         method: "POST",
         headers: {
             'Accept': 'application/json',
@@ -95,18 +95,18 @@ const submitOrder= async function (){
         },
         body: JSON.stringify(data),
     })
-    .then((response) => response.json())
-    .then((order) => {
-        console.log(order);
-        localStorage.clear("panier");
-        localStorage.setItem("order", JSON.stringify(order))
-        localStorage.setItem("totalPrice", JSON.stringify(totalPrice))
-        window.location.pathname= '../pages/order.html';
-    })
-    .catch(() => console.log("Problème de communications avec le serveur"));
+        .then((response) => response.json())
+        .then((order) => {
+            console.log(order);
+            localStorage.clear("panier");
+            localStorage.setItem("order", JSON.stringify(order))
+            localStorage.setItem("totalPrice", JSON.stringify(totalPrice))
+            window.location.pathname = '../pages/order.html';
+        })
+        .catch(() => console.log("Problème de communications avec le serveur"));
 }
 
-const checkForm = () => { 
+const checkForm = () => {
     let checkWording = /[§!@#$%^&().?*":{}|<>]/g;
     let checkWordingStrict = /[0-9]/;
     let erreur;
@@ -122,10 +122,8 @@ const checkForm = () => {
         document.getElementById('city')
     ];
     let error = document.getElementById('error');
-    
-    for (let i=0; i< inputs.length; i++) {
-        console.log(inputs[i]);
-        console.log(inputs[i].match(checkWording));
+
+    for (let i = 0; i < inputs.length; i++) {
         if (inputs[i].match(checkWording)) {
             erreur = "Veuillez vérifiez vos informations : vous ne pouvez utiliser que des lettres, des chiffres et des tirets !"
         };
@@ -134,8 +132,7 @@ const checkForm = () => {
         }
     };
 
-    for (let i=0; i< strictInputs.length; i++) {
-        console.log(strictInputs[i]);
+    for (let i = 0; i < strictInputs.length; i++) {
         //console.log(checkWordingStrict.match(strictInputs[i].value))
         if (strictInputs[i].value.match(checkWordingStrict)) {
             erreur = "Veuillez vérifiez votre Nom, Prénom et Ville : vous ne pouvez utiliser que des lettres et des tirets !"
@@ -143,23 +140,23 @@ const checkForm = () => {
     };
 
     if (erreur) {
-        error.innerHTML= erreur;
+        error.innerHTML = erreur;
         return false;
     } else {
         return data = {
-            contact : {
-                    firstName: document.getElementById('firstName').value,
-                    lastName: document.getElementById('lastName').value,
-                    address: document.getElementById('address').value,
-                    city: document.getElementById('city').value,
-                    email: document.getElementById('email').value
-                },
-            products : itemList
+            contact: {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                address: document.getElementById('address').value,
+                city: document.getElementById('city').value,
+                email: document.getElementById('email').value
+            },
+            products: itemList
         }
     }
 }
 
-form.addEventListener('submit', function(e){
+form.addEventListener('submit', function (e) {
     e.preventDefault();
     checkForm();
     if (data) {

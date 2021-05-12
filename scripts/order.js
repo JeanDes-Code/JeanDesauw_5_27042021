@@ -13,7 +13,7 @@ const buildRecap = () => {
     let email = contact.email;
     let firstName = contact.firstName;
     let lastName = contact.lastName;
-    
+
     recap.innerHTML = (
         `
         <div class = "orderId">
