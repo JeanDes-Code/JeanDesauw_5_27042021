@@ -3,6 +3,8 @@ let totalPrice = JSON.parse(localStorage.getItem("totalPrice"));
 let formatedTotalPrice = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(totalPrice);
 console.log(order);
 
+
+//Construction du récapitulatif de la commande 
 const buildRecap = () => {
     let contact = order.contact;
     let products = order.products;

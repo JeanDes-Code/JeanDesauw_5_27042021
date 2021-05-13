@@ -1,89 +1,91 @@
 <html lang="fr">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name='description' content='Retrouver notre gamme de meumbles 100% chêne français'/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="../css/style.css" />
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/8ed4d3c170.js" crossorigin="anonymous"></script>
-        <title>Mon panier - Orinoco</title>
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='description' content='Retrouver notre gamme de meumbles 100% chêne français' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8ed4d3c170.js" crossorigin="anonymous"></script>
+    <title>Mon panier - Orinoco</title>
+</head>
 
 
-    <body>
-        <header>
-            <nav>
-                <a href="../index.html">
-                    <div class="logo">
-                        <img src="../images/logo.png" alt="logo Orinoco"/>
-                    </div>  
-                </a>
-                <a href="../index.html">
-                    <p id="">Retournez à mes achats</p>
-                </a>
-            </nav>
-        </header>
-        <main>
-            <div class="title">
-                <button id="getBack" class="hidden" onclick="formDisable()"> <i class="fas fa-arrow-left"></i> </button>
-                <h1>Mon panier</h1>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html">
+                <div class="logo">
+                    <img src="../images/logo.png" alt="logo Orinoco" />
+                </div>
+            </a>
+            <a href="../index.html">
+                <p id="">Retournez à mes achats</p>
+            </a>
+        </nav>
+    </header>
+    <main>
+        <div class="title">
+            <button id="getBack" class="hidden" onclick="formDisable()"> <i class="fas fa-arrow-left"></i> </button>
+            <h1>Mon panier</h1>
+        </div>
+
+        <div id=formBox class="hidden">
+            <form class='orderForm' id="form">
+                <strong class="ALERTMSG"> ⚠️ Le formulaire est en cours de création ⚠️ </strong><br>
+
+                <label for="nom"> Nom :</label>
+                <input id="lastName" type="text" placeholder="Dupont" required> </br>
+
+                <label for="prénom"> Prénom :</label>
+                <input id="firstName" type="text" placeholder="Louis" required></br>
+
+                <label for="adresse"> Adresse :</label>
+                <input id="address" type="text" placeholder="123 Avenue Victor Hugo" required></br>
+
+                <label for="ville"> Ville :</label>
+                <input id="city" type="text" placeholder="Paris" required></br>
+
+                <label for="email"> Adresse e-mail :</label>
+                <input id="email" type="email" placeholder="dupont.louis@example.fr" required></br>
+
+                <strong id="error"></strong>
+                <input type="submit" id="submitBtn" value="Passer la commande">
+            </form>
+        </div>
+
+        <div id="panier">
+            <div class="panierTitle">
+                <h2 class="names column">Nom</h2>
+                <h2 class="column">Vernis</h2>
+                <h2 class="column">Quantité</h2>
+                <h2 class="column">Prix</h2>
             </div>
 
-            <div id=formBox class="hidden">
-                <form class='orderForm' id="form">
-                    <strong class="ALERTMSG"> ⚠️ Le formulaire est en cours de création ⚠️ </strong><br>
-                    
-                    <label for="nom"> Nom :</label>
-                    <input id="lastName" type="text" placeholder="Dupont" required> </br>
-                    
-                    <label for="prénom"> Prénom :</label>
-                    <input id="firstName" type="text" placeholder="Louis" required></br>
+            <div class="border"></div>
+            <div class="blank_line"></div>
+            <div id="panierItem">
 
-                    <label for="adresse"> Adresse :</label>
-                    <input id ="address" type="text" placeholder="123 Avenue Victor Hugo" required></br>
-                    
-                    <label for="ville"> Ville :</label>
-                    <input id="city" type="text" placeholder="Paris" required></br>
-                    
-                    <label for="email"> Adresse e-mail :</label>
-                    <input id="email" type="email" placeholder="dupont.louis@example.fr" required></br>
-                    
-                    <strong id="error"></strong>
-                    <input type="submit" id="submitBtn" value="Passer la commande">
-                </form>
+            </div>
+            <div class="blank_line"></div>
+            <div class="border"></div>
+            <div class="blank_line"></div>
+            <div id='panierTotal' class="panierRow">
+
             </div>
 
-            <div id="panier">
-                <div class="panierTitle">
-                    <h2 class="names column">Nom</h2>
-                    <h2 class="column">Vernis</h2>
-                    <h2 class="column">Quantité</h2>
-                    <h2 class="column">Prix</h2>
-                </div>
-
-                <div class="border"></div>
-                <div class="blank_line"></div>
-                <div id="panierItem">
-
-                </div>
-                <div class="blank_line"></div>
-                <div class="border"></div>
-                <div class="blank_line"></div>
-                <div id='panierTotal' class="panierRow">
-
-                </div>
-                
-                <div class="btn_position">
-                    <button id="resetCart" class="btn" onclick="resetCart()"> ❌ Vider le panier </button>
-                    <button id="placeOrder" class="btn"> 🛒 Passer la commande </button>  
-                </div>
+            <div class="btn_position">
+                <button id="resetCart" class="btn" onclick="resetCart()"> ❌ Vider le panier </button>
+                <button id="placeOrder" class="btn"> 🛒 Passer la commande </button>
             </div>
-            
-            
-        </main>
-        <script src="../scripts/panier.js"></script>
-    </body>
+        </div>
+
+
+    </main>
+    <script src="../scripts/panier.js"></script>
+</body>
 
 </html>

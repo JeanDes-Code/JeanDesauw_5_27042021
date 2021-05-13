@@ -86,6 +86,7 @@ for (let i in storedPanier) {
     itemList.push(storedPanier[i].serial);
 }
 
+//Permet d'envoyer la commande au serveur et d'ouvrir la page de confirmation de commande
 const submitOrder = async function () {
     let response = await fetch("http://localhost:3000/api/furniture/order", {
         method: "POST",
@@ -106,43 +107,51 @@ const submitOrder = async function () {
         .catch(() => console.log("Problème de communications avec le serveur"));
 }
 
+
+//Permet de vérifier la conformité des saisies utilisateur dans le formulaire de commande
 const checkForm = () => {
     let checkWording = /[§!@#$%^&().?*":{}|<>]/g;
     let checkWordingStrict = /[0-9]/;
     let erreur;
+    //création d'un tableau contenant les inputs
+    //dans lesquelles les caractères spéciaux ne sont pas acceptés
     let inputs = [
         document.getElementById('firstName').value,
         document.getElementById('lastName').value,
         document.getElementById('address').value,
         document.getElementById('city').value,
     ];
+    //création d'un tableau contenant toutes les inputs 
+    //dans lesquelles les chiffres et les caractères spéciaux ne sont pas acceptés
     let strictInputs = [
         document.getElementById('firstName'),
         document.getElementById('lastName'),
         document.getElementById('city')
     ];
     let error = document.getElementById('error');
-
+    //Validation des saisies utilisateurs 
+    //#1 il n'y a pas de caractères spéciaux
     for (let i = 0; i < inputs.length; i++) {
         if (inputs[i].match(checkWording)) {
             erreur = "Veuillez vérifiez vos informations : vous ne pouvez utiliser que des lettres, des chiffres et des tirets !"
         };
+        //#1bis les inputs ne contiennent pas uniquement des nombres
         if (!isNaN(inputs[i])) {
             erreur = "Veuillez vérifiez vos informations : il semble que certaines ne sont que des nombres."
         }
     };
-
+    //#2 il n'y a pas de chiffre
     for (let i = 0; i < strictInputs.length; i++) {
-        //console.log(checkWordingStrict.match(strictInputs[i].value))
         if (strictInputs[i].value.match(checkWordingStrict)) {
             erreur = "Veuillez vérifiez votre Nom, Prénom et Ville : vous ne pouvez utiliser que des lettres et des tirets !"
         }
     };
-
+    // Si une erreur est détectée, affichage de l'erreur
     if (erreur) {
         error.innerHTML = erreur;
         return false;
-    } else {
+    } // Si aucune erreur n'est détectée on crée l'objet "data" qui sera envoyé au serveur (POST) 
+    else {
         return data = {
             contact: {
                 firstName: document.getElementById('firstName').value,
@@ -155,7 +164,9 @@ const checkForm = () => {
         }
     }
 }
-
+//Lors du clic sur le bouton "passer la commande" du formulaire: 
+// #1 on vérifie que les saisies utilisateurs sont conformes
+// #2 si elle le sont, on envoie data (post)
 form.addEventListener('submit', function (e) {
     e.preventDefault();
     checkForm();

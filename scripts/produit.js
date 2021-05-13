@@ -1,5 +1,4 @@
-/*La fonction onLoadCallback les informations du produit choisi par l'utilisateur 
-énère du HTML pour créer i vignettes produit dans la div #store */
+// Récupération des information du produit en fonction de son ID contenu dans l'url de la page
 const getElement = async function () {
     const serial = new URL(window.location.href).searchParams.get("_id");
     let productDetail;
@@ -9,7 +8,7 @@ const getElement = async function () {
 }
 
 
-
+//Construction de la page grâce aux informations récupérées grâce à getElement()
 const onLoadCallback = async () => {
 
     productDetail = await getElement();
