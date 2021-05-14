@@ -38,8 +38,10 @@ nav a:hover{
 
 .title{
     margin-top: 50px;
-    text-align: center;
+    justify-content: center;
     font-size: 30px;
+    display: flex;
+    align-items: center;
 }
 
 #store{
@@ -108,7 +110,7 @@ nav a:hover{
 
 .itemCard{
     display: flex;
-    width: 65%;
+    width: 80%;
     margin: auto;
     background-color: white;
     padding: 0 20px 0px 0;
@@ -150,21 +152,11 @@ nav a:hover{
     outline: none;
     border: 2px solid black;
     padding: 5px;
+    cursor: pointer;
 }
 
-/*à terme, la classe circleColor changera de couleur de fond en fonction du vernis choisi par l'utilisateur.
-Tan = #EED7AC;
-Chocolate = #7B3F00;
-Black = black;
-White = white;
-Dark Oak = #55342B;
-Light Oak = #D3BA99;
-Teak = #A76A36;
-Mahogany = #3F120F
-*/
 
 #circleColor{
-    background-color: rgba(243,233,241,0.7);
     border: 1px solid black;
     border-radius: 50%;
     width: 30px;
@@ -184,7 +176,29 @@ Mahogany = #3F120F
     background-color: #7B3F00;
 }
 
+.black{
+    background-color: black;
+}
 
+.white{
+    background-color:white;
+}
+
+.darkOak{
+    background-color:#55342B;
+}
+
+.lightOak{
+    background-color:#d3ba99;
+}
+
+.teak{
+    background-color:#a76a36;
+}
+
+.mahogany{
+    background-color:#3f120f;
+}
 
 .itemPrice{
     font-weight: 600;
@@ -193,15 +207,23 @@ Mahogany = #3F120F
 .itemOrder{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .itemQuantity{
-    width: 30px;
+    width: 40px;
+    border-radius: 8px;
+    height: 45px;
+    margin-right: 30px;
+    outline: none;
 }
 
-.itemAdd{
+.btn{
     font-weight: 600;
+    font-size: 23px;
     cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 20px;
 }
 
 .itemStyle{
@@ -211,4 +233,148 @@ Mahogany = #3F120F
 .itemImportantInformation{
     font-weight: 600;
     font-size: 23px;
+}
+
+#panier{
+    width: 60%;
+    margin: auto;
+    background-color: white;
+    padding: 30 50px;
+    border-radius: 40px;
+    box-shadow: 0px 15px 24px 0px rgba(0,0,0,0.4);
+    border: thick solid black;
+}
+
+.panierTitle{
+    display: flex;
+    justify-content: space-between;
+}
+
+.panierRow{
+    display: flex;
+    justify-content: space-between;
+}
+
+.column{
+    width: 110px;
+    height: 30px;
+    text-align: right;
+}
+
+.names{
+    text-align: left;
+    width: 200px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.blank_line{
+    height: 20px;
+}
+
+.border{
+    background-color: black;
+    height: 5px;
+}
+
+#placeOrder{
+    width: fit-content;
+}
+
+.btn_position{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0 20px 0; 
+}
+
+#panierTotal{
+    align-items: center;
+}
+
+.total{
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.item{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.emptyCart{
+    color:rgb(192, 41, 41);
+    font-size: 20px;
+}
+
+#formBox{
+    width: 60%;
+    margin:auto;
+}
+
+.hidden{
+    display: none;
+}
+
+#getBack{
+    background-color:  #F3E9F1;;
+    border:none;
+    font-size: 45px;
+    margin-right: 30px;
+}
+
+.orderForm{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: auto;
+}
+
+#submitBtn{
+    width: fit-content;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#recap{
+    width: 40%;
+    margin: auto;
+    border: solid 5px black;
+    padding: 20px;
+}
+
+.orderId{
+    padding-bottom: 20px;
+}
+
+.userInfo{
+    padding-bottom: 20px;
+}
+
+.recapStyle{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.totalStyle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.priceTotalStyle{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.ALERTMSG{
+    font-size: 25px;
+    font-weight: 800;
+}
+
+#error{
+    color:red;
+    font-weight: 800;
+    font-size: 20px;
+    text-align: center;
 }
