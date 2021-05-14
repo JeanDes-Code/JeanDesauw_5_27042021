@@ -7,7 +7,6 @@ console.log(order);
 //Construction du récapitulatif de la commande 
 const buildRecap = () => {
     let contact = order.contact;
-    let products = order.products;
     let orderId = order.orderId;
     let recap = document.getElementById('recap');
     let address = contact.address;
