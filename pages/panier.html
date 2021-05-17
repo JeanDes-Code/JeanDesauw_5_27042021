@@ -33,30 +33,6 @@
             <h1>Mon panier</h1>
         </div>
 
-        <div id=formBox class="hidden">
-            <form class='orderForm' id="form">
-                <strong class="ALERTMSG"> ⚠️ Le formulaire est en cours de création ⚠️ </strong><br>
-
-                <label for="nom"> Nom :</label>
-                <input id="lastName" type="text" placeholder="Dupont" required> </br>
-
-                <label for="prénom"> Prénom :</label>
-                <input id="firstName" type="text" placeholder="Louis" required></br>
-
-                <label for="adresse"> Adresse :</label>
-                <input id="address" type="text" placeholder="123 Avenue Victor Hugo" required></br>
-
-                <label for="ville"> Ville :</label>
-                <input id="city" type="text" placeholder="Paris" required></br>
-
-                <label for="email"> Adresse e-mail :</label>
-                <input id="email" type="email" placeholder="dupont.louis@example.fr" required></br>
-
-                <strong id="error"></strong>
-                <input type="submit" id="submitBtn" value="Passer la commande">
-            </form>
-        </div>
-
         <div id="panier">
             <div class="panierTitle">
                 <h2 class="names column">Nom</h2>
@@ -81,6 +57,30 @@
                 <button id="resetCart" class="btn" onclick="resetCart()"> ❌ Vider le panier </button>
                 <button id="placeOrder" class="btn"> 🛒 Passer la commande </button>
             </div>
+        </div>
+
+        <div id=formBox class="hidden">
+            <form class='orderForm' id="form" onsubmit="checkForm(this)">
+                <strong class="ALERTMSG"> ⚠️ Le formulaire est en cours de création ⚠️ </strong><br>
+
+                <label for="nom"> Nom :</label>
+                <input id="lastName" name="lastName" pattern='[A-Za-z-]+' title="Votre nom ne peut comporter que des lettres ou des tirets" type="text" placeholder="Dupont" required> </br>
+
+                <label for="prénom"> Prénom :</label>
+                <input id="firstName" name="firstName" pattern='[A-Za-z-]+' title="Votre prénom ne peut comporter que des lettres ou des tirets" type="text" placeholder="Louis" required></br>
+
+                <label for="adresse"> Adresse :</label>
+                <input id="address" name="address" pattern='[A-Za-z0-9-_ ]+' title="Votre addresse ne peut comporter que des chiffres, des lettres ou des tirets" type="text" placeholder="123 Avenue Victor Hugo" required></br>
+                <strong id="error"></strong>
+
+                <label for="ville"> Ville :</label>
+                <input id="city" name="city" pattern='[A-Za-z-]+' title="Votre ville ne peut comporter que des lettres ou des tirets" type="text" placeholder="Paris" required></br>
+
+                <label for="email"> Adresse e-mail :</label>
+                <input id="email" name="email" type="email" placeholder="dupont.louis@example.fr" required></br>
+
+                <input type="submit" id="submitBtn" value="Passer la commande">
+            </form>
         </div>
 
 

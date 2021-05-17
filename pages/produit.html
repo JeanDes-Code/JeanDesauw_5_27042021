@@ -33,12 +33,33 @@
 
     <main>
         <div id="productSheet">
+            <article class="itemCard" >
+        
+                <img id='itemImg' class="itemImg" src="" alt=""/>
+                <div class="columnDescription itemStyle">
+                    <h1 id='itemName' class = "itemName">  </h1>
+                    <p id='itemId' class="itemId"> </p>
+                    <p id='itemDescription' class="itemDescription"></p>
+                    <div class="itemVarnish itemImportantInformation">
+                        <p>Vernis disponibles :</p>
+                        <select id="vernis" class="vernis" required> 
+                        </select>
+                        <div id='circleColor' class='empty'></div>
+                    </div>
+                    <div class="itemOrder">
+                        <p id='itemPrice' class="itemPrice itemImportantInformation "></p>
+                        <div class="orderInfo">
+                            <input type="number" id="quantity" class="itemQuantity itemImportantInformation" name="quantity" required min="1" value ="1">
+                            <button class="btn " id="submit" > 🛒 Ajouter au panier </button>
+                        </div>
+                    </div>
+                </div>
 
-
+            </article>
         </div>
     </main>
 
-    <script src='../scripts/produit.js'></script>
+    <script type="module" src='../scripts/produit.js'></script>
 </body>
 
 </html>
