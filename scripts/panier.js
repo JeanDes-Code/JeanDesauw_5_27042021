@@ -75,27 +75,12 @@ const checkForm = () => {
     let erreur;
     let itemList = [];
 
-    //création d'un tableau contenant les inputs
-    let inputs = [
-        document.getElementById('firstName').value,
-        document.getElementById('lastName').value,
-        document.getElementById('address').value,
-        document.getElementById('city').value,
-    ];
-
-    let error = document.getElementById('error');
-    //Validation des saisies utilisateurs 
-    for (let i = 0; i < inputs.length; i++) {
-        // on vérifie que les inputs ne contiennent pas uniquement des nombres
-        if (!isNaN(inputs[i])) {
-            erreur = "Veuillez vérifiez votre addresse."
-        }
-    };
-    // Si une erreur est détectée, affichage de l'erreur
-    if (erreur) {
-        error.innerHTML = erreur;
+    if (!isNaN(document.getElementById('address').value)) {
+        erreur = "Veuillez vérifiez votre addresse."
+        document.getElementById('error').innerHTML = erreur;
         return false;
-    } // Si aucune erreur n'est détectée on crée l'objet "data" qui sera envoyé au serveur (POST) 
+    }
+    // Si aucune erreur n'est détectée on crée l'objet "data" qui sera envoyé au serveur (POST) 
     else {
         for (let i in storedPanier) {
             itemList.push(storedPanier[i].serial);
@@ -140,9 +125,8 @@ const submitForm = (form) => {
         localStorage.clear("panier");
     }
     else {
-        alert("Nous avons rencontré un problème de connection avec le serveur. Veuillez réessayez plus tard.")
+        alert("Il semble y avoir un problème dans vos informations, veuillez les vérifiez de nouveau.")
     }
-
 }
 
 //Listeners

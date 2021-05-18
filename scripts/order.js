@@ -7,7 +7,7 @@ const buildRecap = () => {
 
     document.getElementById('orderId').innerHTML = `${order.orderId}`
     document.getElementById('contactNames').innerHTML = `${contact.firstName} ${contact.lastName}`
-    document.getElementById('contactEmail').innerHTML = ` Email : ${contact.email}`
+    document.getElementById('contactEmail').innerHTML = `${contact.email}`
     document.getElementById('contactAddress').innerHTML =
         `
     <p>${contact.address}</p>
