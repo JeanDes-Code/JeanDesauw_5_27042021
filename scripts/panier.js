@@ -114,7 +114,7 @@ const submitOrder = async function () {
             localStorage.setItem("totalPrice", JSON.stringify(totalPrice))
             window.location.pathname = '../pages/order.html';
         })
-        .catch(() => console.log("Problème de communications avec le serveur"));
+        .catch(() => alert("Problème de communications avec le serveur"));
 }
 
 const submitForm = (form) => {

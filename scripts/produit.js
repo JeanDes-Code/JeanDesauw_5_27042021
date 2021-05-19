@@ -2,6 +2,13 @@
 import { getElement } from "./requete.js"
 
 /*
+Cette fonction prend 3 paramètres.
+#1 on récupère l'élement du DOM portant le paramètre id
+#2 Si concat est à true, on selectionne sa value et on y ajoute le paramètre value.
+#3 Puis on modifie la value de l'élément selectionné = variable value concaténée.
+
+Utile pour calculer le prix total du panier.
+
 const setEltAlt = (id, value, concat) => {
     const elt = document.getElementById(id)
 
@@ -9,7 +16,7 @@ const setEltAlt = (id, value, concat) => {
         value += elt.attr.value
     }
 
-    elt.attr = value
+    elt.attr.value = value
 }
 */
 
