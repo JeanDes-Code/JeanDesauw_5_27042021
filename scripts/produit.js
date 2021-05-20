@@ -1,25 +1,6 @@
 
 import { getElement } from "./requete.js"
 
-/*
-Cette fonction prend 3 paramètres.
-#1 on récupère l'élement du DOM portant le paramètre id
-#2 Si concat est à true, on selectionne sa value et on y ajoute le paramètre value.
-#3 Puis on modifie la value de l'élément selectionné = variable value concaténée.
-
-Utile pour calculer le prix total du panier.
-
-const setEltAlt = (id, value, concat) => {
-    const elt = document.getElementById(id)
-
-    if (concat) {
-        value += elt.attr.value
-    }
-
-    elt.attr.value = value
-}
-*/
-
 //Construction de la page grâce aux informations récupérées grâce à getElement()
 const onLoadCallback = async () => {
 
@@ -28,9 +9,14 @@ const onLoadCallback = async () => {
     let titre = productDetail.name;
     let prix = productDetail.price;
     let serial = productDetail._id;
-    let image = document.getElementById("itemImg");
     let vernis = productDetail.varnish;
+    let image = document.getElementById("itemImg");
     let select = document.getElementById("vernis");
+    let qty = document.getElementById("quantity");
+    let circle = document.getElementById("circleColor");
+    let selectedQuantity = qty.value;
+    let selectedVarnish = select.value;
+    let newItem;
 
 
     // ---- DEBUT CONSTRUCTION DE LA PAGE
@@ -61,13 +47,7 @@ const onLoadCallback = async () => {
             `
         )
     };
-    // ---- FIN CONSTRUCTION DE LA PAGE
-
-    let newItem;
-    let qty = document.getElementById("quantity");
-    let circle = document.getElementById("circleColor");
-    let selectedQuantity = qty.value;
-    let selectedVarnish = select.value;
+    // ---- FIN CONSTRUCTION DE LA PAG
 
     //Permet de modifier la prévisualisation des vernis lors du choix d'un vernis.
     const varnish = () => {

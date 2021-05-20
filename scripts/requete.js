@@ -16,4 +16,3 @@ export const getElement = async function () {
     productDetail = await response.json();
     return productDetail;
 }
-

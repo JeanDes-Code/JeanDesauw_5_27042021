@@ -1,13 +1,12 @@
 let storedPanier = JSON.parse(localStorage.getItem('panier'));
-let panierTotal = document.getElementById("panierTotal");
 let totalPrice = 0;
 let data;
-
 
 /*Cette fonction construit le panier en récupérant les informations présente sur le local storage */
 const buildPanier = () => {
     /*Si le panier est vide on affiche un message*/
     let totalNumber = 0;
+    let panierTotal = document.getElementById("panierTotal");
     if (storedPanier === null || storedPanier === []) {
         panierTotal.innerHTML = (
             `
