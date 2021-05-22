@@ -1,6 +1,7 @@
-let storedPanier = JSON.parse(localStorage.getItem('panier'));
+import {submitOrder} from "./requete.js"
 let totalPrice = 0;
-let data;
+let storedPanier = JSON.parse(localStorage.getItem('panier'));
+
 
 /*Cette fonction construit le panier en récupérant les informations présente sur le local storage */
 const buildPanier = () => {
@@ -15,6 +16,7 @@ const buildPanier = () => {
         )
     } else {
         //on affiche le panier 
+
         for (let i in storedPanier) {
             let formatedPrice = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(storedPanier[i].price)
             document.getElementById("panierItem").innerHTML += (
@@ -80,11 +82,21 @@ const checkForm = () => {
         return false;
     }
     // Si aucune erreur n'est détectée on crée l'objet "data" qui sera envoyé au serveur (POST) 
-    else {
+    return true
+}
+
+//Permet d'envoyer la commande au serveur et d'ouvrir la page de confirmation de commande
+
+
+const submitForm = async () => {
+    const isValid = checkForm();
+
+    if (isValid) {
+        const itemList = [];
         for (let i in storedPanier) {
             itemList.push(storedPanier[i].serial);
         }
-        return data = {
+        const data = {
             contact: {
                 firstName: document.getElementById('firstName').value,
                 lastName: document.getElementById('lastName').value,
@@ -94,34 +106,14 @@ const checkForm = () => {
             },
             products: itemList
         }
-    }
-}
-
-//Permet d'envoyer la commande au serveur et d'ouvrir la page de confirmation de commande
-const submitOrder = async function () {
-    let response = await fetch("http://localhost:3000/api/furniture/order", {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data),
-    })
-        .then((response) => response.json())
-        .then((order) => {
+        const order = await submitOrder(data)
+        // .then (order => {
             localStorage.setItem("order", JSON.stringify(order))
             localStorage.setItem("totalPrice", JSON.stringify(totalPrice))
             window.location.pathname = '../pages/order.html';
-        })
-        .catch(() => alert("Problème de communications avec le serveur"));
-}
-
-const submitForm = (form) => {
-    checkForm();
-
-    if (data) {
-        submitOrder();
-        localStorage.clear("panier");
+            localStorage.removeItem("panier");
+        // }) ;
+        
     }
     else {
         alert("Il semble y avoir un problème dans vos informations, veuillez les vérifiez de nouveau.")
@@ -137,4 +129,4 @@ form.addEventListener('submit', function (e) {
 });
 
 //Call functions
-buildPanier();
+window.addEventListener('DOMContentLoaded', buildPanier);

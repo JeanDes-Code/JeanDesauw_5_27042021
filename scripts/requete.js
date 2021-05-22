@@ -16,3 +16,16 @@ export const getElement = async function () {
     productDetail = await response.json();
     return productDetail;
 }
+
+export const submitOrder = async function (data) {
+    return fetch("http://localhost:3000/api/furniture/order", {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+    })
+    .then((response) => response.json())
+    .catch(() => alert("Problème de communications avec le serveur"));
+}
