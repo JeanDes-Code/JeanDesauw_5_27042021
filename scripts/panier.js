@@ -1,7 +1,6 @@
-import {submitOrder} from "./requete.js"
+import { submitOrder } from "./requete.js"
 let totalPrice = 0;
 let storedPanier = JSON.parse(localStorage.getItem('panier'));
-
 
 /*Cette fonction construit le panier en récupérant les informations présente sur le local storage */
 const buildPanier = () => {
@@ -86,8 +85,6 @@ const checkForm = () => {
 }
 
 //Permet d'envoyer la commande au serveur et d'ouvrir la page de confirmation de commande
-
-
 const submitForm = async () => {
     const isValid = checkForm();
 
@@ -107,13 +104,10 @@ const submitForm = async () => {
             products: itemList
         }
         const order = await submitOrder(data)
-        // .then (order => {
-            localStorage.setItem("order", JSON.stringify(order))
-            localStorage.setItem("totalPrice", JSON.stringify(totalPrice))
-            window.location.pathname = '../pages/order.html';
-            localStorage.removeItem("panier");
-        // }) ;
-        
+        localStorage.setItem("order", JSON.stringify(order))
+        localStorage.setItem("totalPrice", JSON.stringify(totalPrice))
+        window.location.pathname = '../pages/order.html';
+        localStorage.removeItem("panier");
     }
     else {
         alert("Il semble y avoir un problème dans vos informations, veuillez les vérifiez de nouveau.")

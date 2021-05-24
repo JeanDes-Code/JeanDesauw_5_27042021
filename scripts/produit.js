@@ -47,13 +47,12 @@ const onLoadCallback = async () => {
             `
         )
     };
-    // ---- FIN CONSTRUCTION DE LA PAG
+    // ---- FIN CONSTRUCTION DE LA PAGE
 
     //Permet de modifier la prévisualisation des vernis lors du choix d'un vernis.
     const varnish = () => {
         selectedVarnish = select.value.replace(' ', '');
         circle.setAttribute("class", "");
-        circle.classList.add("value")
         const value = selectedVarnish.charAt(0).toLowerCase() + selectedVarnish.substr(1);
         circle.classList.add(value)
     }

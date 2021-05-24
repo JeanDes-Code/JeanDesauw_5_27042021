@@ -17,8 +17,10 @@ export const getElement = async function () {
     return productDetail;
 }
 
+
+// Envoie de l'objet data au serveur : informations de commande. Retour d'une promesse.
 export const submitOrder = async function (data) {
-    return fetch("http://localhost:3000/api/furniture/order", {
+    return fetch(baseUrl + "order", {
         method: "POST",
         headers: {
             'Accept': 'application/json',
@@ -26,6 +28,6 @@ export const submitOrder = async function (data) {
         },
         body: JSON.stringify(data),
     })
-    .then((response) => response.json())
-    .catch(() => alert("Problème de communications avec le serveur"));
+        .then((response) => response.json())
+        .catch(() => alert("Problème de communications avec le serveur"));
 }
