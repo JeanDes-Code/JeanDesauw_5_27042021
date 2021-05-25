@@ -80,7 +80,6 @@ const checkForm = () => {
         document.getElementById('error').innerHTML = erreur;
         return false;
     }
-    // Si aucune erreur n'est détectée on crée l'objet "data" qui sera envoyé au serveur (POST) 
     return true
 }
 
