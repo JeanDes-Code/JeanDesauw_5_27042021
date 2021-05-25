@@ -115,6 +115,7 @@ const submitForm = async () => {
 }
 
 //Listeners
+document.getElementById('resetCart').addEventListener('click', resetCart);
 document.getElementById('placeOrder').addEventListener('click', formToggle);
 document.getElementById('getBack').addEventListener('click', formDisable);
 form.addEventListener('submit', function (e) {
