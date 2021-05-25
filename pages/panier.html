@@ -1,0 +1,92 @@
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='description' content='Retrouver notre gamme de meumbles 100% chêne français' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8ed4d3c170.js" crossorigin="anonymous"></script>
+    <title>Mon panier - Orinoco</title>
+</head>
+
+
+<body>
+    <script type="module" src="../scripts/panier.js"></script>
+    <header>
+        <nav>
+            <a href="../index.html">
+                <div class="logo">
+                    <img src="../images/logo.png" alt="logo Orinoco" />
+                </div>
+            </a>
+            <a href="../index.html">
+                <p id="">Retournez à mes achats</p>
+            </a>
+        </nav>
+    </header>
+    <main>
+        <div class="title">
+            <button id="getBack" class="hidden" onclick="formDisable()"> <i class="fas fa-arrow-left"></i> </button>
+            <h1>Mon panier</h1>
+        </div>
+
+        <div id="panier">
+            <div class="panierTitle">
+                <h2 class="names column">Nom</h2>
+                <h2 class="column">Vernis</h2>
+                <h2 class="column">Quantité</h2>
+                <h2 class="column">Prix</h2>
+            </div>
+
+            <div class="border"></div>
+            <div class="blank_line"></div>
+            <div id="panierItem">
+
+            </div>
+            <div class="blank_line"></div>
+            <div class="border"></div>
+            <div class="blank_line"></div>
+            <div id='panierTotal' class="panierRow">
+
+            </div>
+
+            <div class="btn_position">
+                <button id="resetCart" class="btn" onclick="resetCart()"> ❌ Vider le panier </button>
+                <button id="placeOrder" class="btn"> 🛒 Passer la commande </button>
+            </div>
+        </div>
+
+        <div id=formBox class="hidden">
+            <form class='orderForm' id="form">
+                <strong class="formTitle"> Formulaire de commande </strong><br>
+
+                <label for="nom" class="formLabel"> Nom :</label>
+                <input id="lastName" class="formInput" name="lastName" pattern='[A-Za-z-]+' title="Votre nom ne peut comporter que des lettres ou des tirets" type="text" placeholder="Dupont" required> </br>
+
+                <label for="prénom" class="formLabel"> Prénom :</label>
+                <input id="firstName" class="formInput" name="firstName" pattern='[A-Za-z-]+' title="Votre prénom ne peut comporter que des lettres ou des tirets" type="text" placeholder="Louis" required></br></br>
+
+                <label for="adresse" contenteditable="text" class="formLabel"> Adresse :</label>
+                <input id="address" class="formInput" name="address" pattern='[A-Za-z0-9-_ ]+' title="Votre addresse ne peut comporter que des chiffres, des lettres ou des tirets" type="text" placeholder="123 Avenue Victor Hugo" required></br>
+                <strong id="error"></strong>
+
+                <label for="ville" class="formLabel"> Ville :</label>
+                <input id="city" class="formInput" name="city" pattern='[A-Za-z-]+' title="Votre ville ne peut comporter que des lettres ou des tirets" type="text" placeholder="Paris" required></br></br>
+
+                <label for="email" class="formLabel"> Adresse e-mail :</label>
+                <input id="email" class="formInput" name="email" type="email" placeholder="dupont.louis@example.fr" required></br>
+
+                <input type="submit" id="submitBtn" class="btn" value="Passer la commande">
+            </form>
+        </div>
+
+
+    </main>
+
+</body>
+
+</html>

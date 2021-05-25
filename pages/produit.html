@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='description' content='Retrouver notre gamme de meumbles 100% chêne français' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <title>Acheter des meubles en chêne - Orinoco</title>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="../index.html">
+                <div class="logo">
+                    <img src="../images/logo.png" alt="logo Orinoco" />
+                </div>
+            </a>
+            <a href="../index.html">
+                <p id="">Retournez à mes achats</p>
+            </a>
+            <a href="panier.html">
+                <p>Mon panier</p>
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="productSheet">
+            <article class="itemCard" >
+        
+                <img id='itemImg' class="itemImg" src="" alt=""/>
+                <div class="columnDescription itemStyle">
+                    <h1 id='itemName' class = "itemName">  </h1>
+                    <p id='itemId' class="itemId"> </p>
+                    <p id='itemDescription' class="itemDescription"></p>
+                    <div class="itemVarnish itemImportantInformation">
+                        <p>Vernis disponibles :</p>
+                        <select id="vernis" class="vernis" required> 
+                        </select>
+                        <div id='circleColor' class='empty'></div>
+                    </div>
+                    <div class="itemOrder">
+                        <p id='itemPrice' class="itemPrice itemImportantInformation "></p>
+                        <div class="orderInfo">
+                            <input type="number" id="quantity" class="itemQuantity itemImportantInformation" name="quantity" required min="1" max="50" value ="1">
+                            <button class="btn " id="submit" > 🛒 Ajouter au panier </button>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+        </div>
+    </main>
+
+    <script type="module" src='../scripts/produit.js'></script>
+</body>
+
+</html>

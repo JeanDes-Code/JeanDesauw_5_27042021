@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+body{
+    background-color: #F3E9F1;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1{
+    font-weight: 600;
+}
+
+p{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+
+header{
+    margin: auto 80px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a{
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+nav a:hover{
+    text-decoration: underline;
+}
+
+.title{
+    margin-top: 50px;
+    justify-content: center;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#store{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin:0 10%;
+}
+
+.productItem{
+    width: 28%;
+    border-radius: 10%;
+    display: flex;
+    margin:20px;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0px 15px 24px 0px rgba(0,0,0,0.4);
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+
+.productItem:hover{
+    transform:scale(1.01);
+}
+
+.productImg{
+    object-fit:contain;
+    border-radius: 20px 20px 0 0;
+    height: 197px;
+    object-fit: cover;
+}
+
+.productName{
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.descriptionStyle{
+    padding: 0 30px;
+}
+
+.productId{
+    font-weight: 600;
+    font-size:14px;
+    margin-top: -20px;
+    margin-left: 7px;
+}
+
+.productDescription{
+    margin-top: 20px;
+}
+
+.productPrice{
+    text-align: end;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#productSheet{
+    margin-top: 10px;
+}
+
+.itemCard{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    padding: 0 20px 0px 0;
+    border-radius: 30px;
+    box-shadow: 0px 15px 24px 0px rgba(0,0,0,0.4);
+}
+
+.itemName{
+    font-size: 50px;
+    text-align: center;
+    margin-top: -200px;
+}
+
+.itemImg{
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+    border: thick solid black;
+    border-radius: 30px 0 0 30px;
+}
+
+.columnDescription{
+    margin-left: 40px;
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.itemVarnish{
+    display: flex;
+    font-weight: 600;
+}
+
+.vernis{
+    margin-left: 20px;
+    appearance: none;
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid black;
+    padding: 5px;
+    cursor: pointer;
+}
+
+
+#circleColor{
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: 30px;
+}
+
+.empty{
+    background-color: rgba(243,233,241,0.7);
+}
+
+.tan{
+    background-color: #EED7AC;
+}
+
+.chocolate{
+    background-color: #7B3F00;
+}
+
+.black{
+    background-color: black;
+}
+
+.white{
+    background-color:white;
+}
+
+.darkOak{
+    background-color:#55342B;
+}
+
+.lightOak{
+    background-color:#d3ba99;
+}
+
+.teak{
+    background-color:#a76a36;
+}
+
+.mahogany{
+    background-color:#3f120f;
+}
+
+.itemPrice{
+    font-weight: 600;
+}
+
+.itemOrder{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.itemQuantity{
+    width: 40px;
+    border-radius: 8px;
+    height: 45px;
+    margin-right: 30px;
+    outline: none;
+}
+
+.btn{
+    font-weight: 600;
+    font-size: 23px;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 20px;
+}
+
+.itemStyle{
+    font-size: 20px;
+}
+
+.itemImportantInformation{
+    font-weight: 600;
+    font-size: 23px;
+}
+
+#panier{
+    width: 60%;
+    margin: auto;
+    background-color: white;
+    padding: 30 50px;
+    border-radius: 40px;
+    box-shadow: 0px 15px 24px 0px rgba(0,0,0,0.4);
+    border: thick solid black;
+}
+
+.panierTitle{
+    display: flex;
+    justify-content: space-between;
+}
+
+.panierRow{
+    display: flex;
+    justify-content: space-between;
+}
+
+.column{
+    width: 110px;
+    height: 30px;
+    text-align: right;
+}
+
+.names{
+    text-align: left;
+    width: 200px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.blank_line{
+    height: 20px;
+}
+
+.border{
+    background-color: black;
+    height: 5px;
+}
+
+#placeOrder{
+    width: fit-content;
+}
+
+.btn_position{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0 20px 0; 
+}
+
+#panierTotal{
+    align-items: center;
+}
+
+.total{
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.item{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.emptyCart{
+    color:rgb(192, 41, 41);
+    font-size: 20px;
+}
+
+#formBox{
+    width: 50%;
+    margin:auto;
+    background-color: white;
+    padding: 60px 0;
+    border-radius: 20px;
+    box-shadow: 0px 15px 24px 0px rgba(0,0,0,0.4); 
+    border: thick black solid;   
+}
+
+.hidden{
+    display: none;
+}
+
+#getBack{
+    background-color:  #F3E9F1;;
+    border:none;
+    font-size: 45px;
+    margin-right: 30px;
+}
+
+.orderForm{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: auto;
+}
+
+#submitBtn{
+    width: fit-content;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#recap{
+    width: 40%;
+    margin: auto;
+    border: solid 5px black;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 15px 24px 0px rgba(0,0,0,0.4);
+    border-radius: 20px;
+}
+
+.orderId{
+    padding-bottom: 20px;
+}
+
+.userInfo{
+    padding-bottom: 20px;
+}
+
+.recapStyle{
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 150px;
+}
+
+.totalStyle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.priceTotalStyle{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.formTitle{
+    font-size: 30px;
+    font-weight: 800;
+}
+
+#error{
+    color:red;
+    font-weight: 800;
+    font-size: 20px;
+    text-align: center;
+}
+
+.formInput{
+    font-weight: 600;
+    font-size: 23px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    outline: none;
+    height: auto;
+}
+
+.formLabel{
+    font-weight: 700;
+    font-size: 18px;
+}
