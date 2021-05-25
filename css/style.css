@@ -308,8 +308,13 @@ nav a:hover{
 }
 
 #formBox{
-    width: 60%;
+    width: 50%;
     margin:auto;
+    background-color: white;
+    padding: 60px 0;
+    border-radius: 20px;
+    box-shadow: 0px 15px 24px 0px rgba(0,0,0,0.4); 
+    border: thick black solid;   
 }
 
 .hidden{
@@ -341,6 +346,9 @@ nav a:hover{
     margin: auto;
     border: solid 5px black;
     padding: 20px;
+    background-color: white;
+    box-shadow: 0px 15px 24px 0px rgba(0,0,0,0.4);
+    border-radius: 20px;
 }
 
 .orderId{
@@ -354,6 +362,7 @@ nav a:hover{
 .recapStyle{
     font-size: 18px;
     font-weight: 500;
+    margin-left: 150px;
 }
 
 .totalStyle{
@@ -367,8 +376,8 @@ nav a:hover{
     font-weight: 700;
 }
 
-.ALERTMSG{
-    font-size: 25px;
+.formTitle{
+    font-size: 30px;
     font-weight: 800;
 }
 
@@ -377,4 +386,18 @@ nav a:hover{
     font-weight: 800;
     font-size: 20px;
     text-align: center;
+}
+
+.formInput{
+    font-weight: 600;
+    font-size: 23px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    outline: none;
+    height: auto;
+}
+
+.formLabel{
+    font-weight: 700;
+    font-size: 18px;
 }

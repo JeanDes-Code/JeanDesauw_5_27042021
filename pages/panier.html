@@ -15,6 +15,7 @@
 
 
 <body>
+    <script type="module" src="../scripts/panier.js"></script>
     <header>
         <nav>
             <a href="../index.html">
@@ -31,30 +32,6 @@
         <div class="title">
             <button id="getBack" class="hidden" onclick="formDisable()"> <i class="fas fa-arrow-left"></i> </button>
             <h1>Mon panier</h1>
-        </div>
-
-        <div id=formBox class="hidden">
-            <form class='orderForm' id="form">
-                <strong class="ALERTMSG"> ⚠️ Le formulaire est en cours de création ⚠️ </strong><br>
-
-                <label for="nom"> Nom :</label>
-                <input id="lastName" type="text" placeholder="Dupont" required> </br>
-
-                <label for="prénom"> Prénom :</label>
-                <input id="firstName" type="text" placeholder="Louis" required></br>
-
-                <label for="adresse"> Adresse :</label>
-                <input id="address" type="text" placeholder="123 Avenue Victor Hugo" required></br>
-
-                <label for="ville"> Ville :</label>
-                <input id="city" type="text" placeholder="Paris" required></br>
-
-                <label for="email"> Adresse e-mail :</label>
-                <input id="email" type="email" placeholder="dupont.louis@example.fr" required></br>
-
-                <strong id="error"></strong>
-                <input type="submit" id="submitBtn" value="Passer la commande">
-            </form>
         </div>
 
         <div id="panier">
@@ -83,9 +60,33 @@
             </div>
         </div>
 
+        <div id=formBox class="hidden">
+            <form class='orderForm' id="form">
+                <strong class="formTitle"> Formulaire de commande </strong><br>
+
+                <label for="nom" class="formLabel"> Nom :</label>
+                <input id="lastName" class="formInput" name="lastName" pattern='[A-Za-z-]+' title="Votre nom ne peut comporter que des lettres ou des tirets" type="text" placeholder="Dupont" required> </br>
+
+                <label for="prénom" class="formLabel"> Prénom :</label>
+                <input id="firstName" class="formInput" name="firstName" pattern='[A-Za-z-]+' title="Votre prénom ne peut comporter que des lettres ou des tirets" type="text" placeholder="Louis" required></br></br>
+
+                <label for="adresse" contenteditable="text" class="formLabel"> Adresse :</label>
+                <input id="address" class="formInput" name="address" pattern='[A-Za-z0-9-_ ]+' title="Votre addresse ne peut comporter que des chiffres, des lettres ou des tirets" type="text" placeholder="123 Avenue Victor Hugo" required></br>
+                <strong id="error"></strong>
+
+                <label for="ville" class="formLabel"> Ville :</label>
+                <input id="city" class="formInput" name="city" pattern='[A-Za-z-]+' title="Votre ville ne peut comporter que des lettres ou des tirets" type="text" placeholder="Paris" required></br></br>
+
+                <label for="email" class="formLabel"> Adresse e-mail :</label>
+                <input id="email" class="formInput" name="email" type="email" placeholder="dupont.louis@example.fr" required></br>
+
+                <input type="submit" id="submitBtn" class="btn" value="Passer la commande">
+            </form>
+        </div>
+
 
     </main>
-    <script src="../scripts/panier.js"></script>
+
 </body>
 
 </html>
