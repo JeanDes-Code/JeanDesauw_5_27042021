@@ -7,6 +7,7 @@ const buildPanier = () => {
     /*Si le panier est vide on affiche un message*/
     let totalNumber = 0;
     let panierTotal = document.getElementById("panierTotal");
+    let vernis;
     if (storedPanier === null || storedPanier === []) {
         panierTotal.innerHTML = (
             `
@@ -17,12 +18,13 @@ const buildPanier = () => {
         //on affiche le panier 
 
         for (let i in storedPanier) {
+            vernis = storedPanier[i].vernis.replace(/([a-z])([A-Z])/g, '$1 $2'); // <--Permet d'ajouter un espace aux noms de vernis lorsqu'ils sont affichés dans le panier
             let formatedPrice = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(storedPanier[i].price)
             document.getElementById("panierItem").innerHTML += (
                 `
                 <div class="panierRow R-${i}">
                     <p class="item column names name-${i}">${storedPanier[i].name}</p>
-                    <p class="item column varnish-${i}">${storedPanier[i].vernis}</p>
+                    <p class="item column varnish-${i}">${vernis}</p>
                     <p class="item column itemQuantity quantity-${i}">${storedPanier[i].quantity}</p>
                     <p class="item column price-${i}">${formatedPrice} </p>
                 </div>
@@ -43,7 +45,6 @@ const buildPanier = () => {
             `
         )
     }
-
 }
 
 //Fonction permettant de vider le panier
@@ -73,7 +74,6 @@ const formDisable = () => {
 //Permet de vérifier la conformité des saisies utilisateur dans le formulaire de commande
 const checkForm = () => {
     let erreur;
-    let itemList = [];
 
     if (!isNaN(document.getElementById('address').value)) {
         erreur = "Veuillez vérifiez votre addresse."
