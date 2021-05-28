@@ -76,7 +76,7 @@ const checkForm = () => {
     let erreur;
 
     if (!isNaN(document.getElementById('address').value)) {
-        erreur = "Veuillez vérifiez votre addresse."
+        erreur = "Veuillez vérifiez votre adresse."
         document.getElementById('error').innerHTML = erreur;
         return false;
     }
