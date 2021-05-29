@@ -1,19 +1,14 @@
 
-import { getElement } from "./requete.js"
+import { getProductById } from "./requete.js"
+
 
 //Construction de la page grâce aux informations récupérées grâce à getElement()
 const onLoadCallback = async () => {
-
-    const productDetail = await getElement();
-
-    let titre = productDetail.name;
-    let prix = productDetail.price;
-    let serial = productDetail._id;
-    let vernis = productDetail.varnish;
+    const serial = new URL(window.location.href).searchParams.get("_id");
+    const productDetail = await getProductById(serial);
     let image = document.getElementById("itemImg");
     let select = document.getElementById("vernis");
     let qty = document.getElementById("quantity");
-    let circle = document.getElementById("circleColor");
     let selectedQuantity = qty.value;
     let selectedVarnish = select.value;
     let newItem;
@@ -21,15 +16,15 @@ const onLoadCallback = async () => {
 
     // ---- DEBUT CONSTRUCTION DE LA PAGE
     image.setAttribute("src", productDetail.imageUrl);
-    image.setAttribute("alt", "image du produit : " + titre);
+    image.setAttribute("alt", "image du produit : " + productDetail.name);
 
     document
         .getElementById("itemName")
-        .innerHTML = (`${titre}`);
+        .innerHTML = (`${productDetail.name}`);
 
     document
         .getElementById("itemId")
-        .innerHTML = (`(Identifiant produit : ${serial})`);
+        .innerHTML = (`(Identifiant produit : ${productDetail._id})`);
 
     document
         .getElementById("itemDescription")
@@ -37,13 +32,13 @@ const onLoadCallback = async () => {
 
     document
         .getElementById("itemPrice")
-        .innerHTML = (`${new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(prix)}`);
+        .innerHTML = (`${new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(productDetail.price)}`);
 
-    for (let element in vernis) {
+    for (let element in productDetail.varnish) {
 
         select.innerHTML += (
             `
-            <option value='${vernis[element]}'>${vernis[element]}</option>
+            <option value='${productDetail.varnish[element]}'>${productDetail.varnish[element]}</option>
             `
         )
     };
@@ -51,6 +46,8 @@ const onLoadCallback = async () => {
 
     //Permet de modifier la prévisualisation des vernis lors du choix d'un vernis.
     const varnish = () => {
+        let circle = document.getElementById("circleColor");
+        let select = document.getElementById("vernis");
         selectedVarnish = select.value.replace(' ', '');
         circle.setAttribute("class", "");
         const value = selectedVarnish.charAt(0).toLowerCase() + selectedVarnish.substr(1);
@@ -61,12 +58,12 @@ const onLoadCallback = async () => {
     //Création de l'objet qui sera enregistré en localstorage
     const itemInfo = () => {
         newItem = {
-            name: titre,
+            name: productDetail.name,
             vernis: selectedVarnish,
             quantity: selectedQuantity,
-            price: prix,
-            total: parseInt(prix, 10) * parseInt(selectedQuantity),
-            serial: serial
+            price: productDetail.price,
+            total: parseInt(productDetail.price, 10) * parseInt(selectedQuantity),
+            serial: productDetail._id
         }
         return (newItem);
     }
@@ -74,7 +71,7 @@ const onLoadCallback = async () => {
     //Fonction "Ajouter au panier", qui enregistre l'item sélectionné dans localstorage 
     const addToCart = () => {
         let storedPanier = JSON.parse(localStorage.getItem('panier'));
-        itemInfo();
+        const newItem = itemInfo();
         //Si aucun "panier" n'est enregistré en localStorage, on le crée.
         if (storedPanier === null || storedPanier === []) {
             let panier = [];
