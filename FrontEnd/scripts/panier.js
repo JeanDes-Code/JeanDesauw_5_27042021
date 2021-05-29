@@ -107,7 +107,7 @@ const submitForm = async () => {
     const order = await submitOrder(data)
     localStorage.setItem("order", JSON.stringify(order))
     localStorage.setItem("totalPrice", JSON.stringify(totalPrice))
-    window.location.pathname = '../pages/order.html';
+    window.location.pathname = 'FrontEnd/pages/order.html';
     localStorage.removeItem("panier");
 }
 
