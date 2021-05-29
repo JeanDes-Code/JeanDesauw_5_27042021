@@ -9,14 +9,10 @@ export const getProducts = async function () {
 }
 
 // Récupération des information du produit en fonction de son ID contenu dans l'url de la page
-export const getElement = async function () {
-    const serial = new URL(window.location.href).searchParams.get("_id");
-    let productDetail;
+export const getProductById = async function (serial) {
     let response = await fetch(baseUrl + serial)
-    productDetail = await response.json();
-    return productDetail;
+    return await response.json();;
 }
-
 
 // Envoie de l'objet data au serveur : informations de commande. Retour d'une promesse.
 export const submitOrder = async function (data) {

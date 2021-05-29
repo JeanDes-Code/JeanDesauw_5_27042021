@@ -5,9 +5,8 @@ let storedPanier = JSON.parse(localStorage.getItem('panier'));
 /*Cette fonction construit le panier en récupérant les informations présente sur le local storage */
 const buildPanier = () => {
     /*Si le panier est vide on affiche un message*/
-    let totalNumber = 0;
+    let totalQuantity = 0;
     let panierTotal = document.getElementById("panierTotal");
-    let vernis;
     if (storedPanier === null || storedPanier === []) {
         panierTotal.innerHTML = (
             `
@@ -18,7 +17,7 @@ const buildPanier = () => {
         //on affiche le panier 
 
         for (let i in storedPanier) {
-            vernis = storedPanier[i].vernis.replace(/([a-z])([A-Z])/g, '$1 $2'); // <--Permet d'ajouter un espace aux noms de vernis lorsqu'ils sont affichés dans le panier
+            let vernis = storedPanier[i].vernis.replace(/([a-z])([A-Z])/g, '$1 $2'); // <--Permet d'ajouter un espace aux noms de vernis lorsqu'ils sont affichés dans le panier
             let formatedPrice = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(storedPanier[i].price)
             document.getElementById("panierItem").innerHTML += (
                 `
@@ -32,7 +31,7 @@ const buildPanier = () => {
             );
             /*On calcule le prix total et le nombre total d'articles */
             totalPrice += parseInt(storedPanier[i].total, 10);
-            totalNumber += parseInt(storedPanier[i].quantity, 10);
+            totalQuantity += parseInt(storedPanier[i].quantity, 10);
         }
         //on affiche le prix total et le nombre total d'article
         let formatedTotalPrice = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(totalPrice);
@@ -40,7 +39,7 @@ const buildPanier = () => {
             `
             <strong class="column names total">Total :</strong>
             <strong class="column"> </strong>
-            <strong class="column itemQuantity total "> ${totalNumber} </strong>
+            <strong class="column itemQuantity total "> ${totalQuantity} </strong>
             <strong class="column total">${formatedTotalPrice}</strong>
             `
         )
@@ -87,30 +86,29 @@ const checkForm = () => {
 const submitForm = async () => {
     const isValid = checkForm();
 
-    if (isValid) {
-        const itemList = [];
-        for (let i in storedPanier) {
-            itemList.push(storedPanier[i].serial);
-        }
-        const data = {
-            contact: {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                address: document.getElementById('address').value,
-                city: document.getElementById('city').value,
-                email: document.getElementById('email').value
-            },
-            products: itemList
-        }
-        const order = await submitOrder(data)
-        localStorage.setItem("order", JSON.stringify(order))
-        localStorage.setItem("totalPrice", JSON.stringify(totalPrice))
-        window.location.pathname = '../pages/order.html';
-        localStorage.removeItem("panier");
+    if (!isValid) {
+        alert("Il semble y avoir un problème dans vos informations, veuillez les vérifier de nouveau.")
+        return
     }
-    else {
-        alert("Il semble y avoir un problème dans vos informations, veuillez les vérifiez de nouveau.")
+    const itemList = [];
+    for (let i in storedPanier) {
+        itemList.push(storedPanier[i].serial);
     }
+    const data = {
+        contact: {
+            firstName: document.getElementById('firstName').value,
+            lastName: document.getElementById('lastName').value,
+            address: document.getElementById('address').value,
+            city: document.getElementById('city').value,
+            email: document.getElementById('email').value
+        },
+        products: itemList
+    }
+    const order = await submitOrder(data)
+    localStorage.setItem("order", JSON.stringify(order))
+    localStorage.setItem("totalPrice", JSON.stringify(totalPrice))
+    window.location.pathname = 'FrontEnd/pages/order.html';
+    localStorage.removeItem("panier");
 }
 
 //Listeners
